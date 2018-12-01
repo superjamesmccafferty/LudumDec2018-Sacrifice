@@ -29,15 +29,19 @@ namespace Sacrifice
 
         public void Shoot(bool is_right)
         {
+            float direction_mod = is_right ? 1 : -1;
 
             GameObject ob = Instantiate(
                 _projectile,
-                _direction_start.position + _direction / 2,
+                _direction_start.position + _direction * direction_mod / 2,
                 Quaternion.identity);
 
             Rigidbody2D rb2 = ob.GetComponent<Rigidbody2D>();
 
-            float direction_mod = is_right ? 1 : -1;
+
+
+            Debug.Log(new Vector2(force * direction_mod, 0));
+
             rb2.AddForce(new Vector2(force * direction_mod, 0), ForceMode2D.Force);
 
 
