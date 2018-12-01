@@ -10,4 +10,4 @@ Our awesome game jam creation
 4. Give me your github names so I can give you all the access you need
 5. Clone the repo. There are a few ways to do this. I normally just open a command prompt and type 'git clone https://github.com/superjamesmccafferty/LudumDec2018-Sacrifice.git'
 6. We're going to use my personal framework to speed things up. There are many things pre written so it should make up for the 12 hours we spent partying and sleeping. This means you will need to 'initilaize' the sub module. THis is easy to do in git kracken, I will tell you how. YOu can always look here, but I don't find these instructions super clear. https://support.gitkraken.com/working-with-repositories/submodules
-
+7. Get me to add you to the Trello: https://trello.com/b/tkC6Np3z/gametasks
