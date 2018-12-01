@@ -50,7 +50,7 @@ namespace Sacrifice
 
             TotalHealth += change;
             if (TotalHealth < 0) TotalHealth = 0;
-
+            RaiseHealthChange();
             if (Health >= TotalHealth) Health = TotalHealth;
 
         }
@@ -67,6 +67,7 @@ namespace Sacrifice
             if (Health <= 0) Health = 0;
 
             OnDamage.Raise(damage);
+            RaiseHealthChange();
             OnDeath.Raise();
 
         }
