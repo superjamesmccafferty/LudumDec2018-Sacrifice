@@ -21,8 +21,9 @@ GameObject:
   - component: {fileID: 4811060539119526}
   - component: {fileID: 33762412180069186}
   - component: {fileID: 23415236673271852}
-  - component: {fileID: 58723549729233542}
   - component: {fileID: 50056570285219320}
+  - component: {fileID: 58723549729233542}
+  - component: {fileID: 114398778679673642}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -120,3 +121,14 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &114398778679673642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870649125509304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c65ea3f9902a2d4685cc669409ee7f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -68,8 +68,8 @@ namespace Sacrifice
 
             OnDamage.Raise(damage);
             RaiseHealthChange();
-            OnDeath.Raise();
 
+            if (Health == 0) OnDeath.Raise();
         }
 
 

@@ -13,9 +13,7 @@ namespace Sacrifice
 
             IDamagable dam = col.gameObject.GetComponent<IDamagable>();
 
-            dam.Damage(10f);
-
-            Debug.Log(dam);
+            dam?.Damage(10f);
 
             Destroy(gameObject);
 
