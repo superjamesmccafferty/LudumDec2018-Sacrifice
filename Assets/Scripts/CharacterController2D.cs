@@ -32,6 +32,9 @@ namespace Sacrifice
         [SerializeField]
         float _move_speed = 10;
 
+        [SerializeField]
+        ShootManager _shoot_manager;
+
 
 
 
@@ -115,6 +118,11 @@ namespace Sacrifice
                 _is_grounded = false;
                 _rb2.AddForce(new Vector2(0f, _jump_force));
             }
+        }
+
+        public void Shoot()
+        {
+            _shoot_manager.Shoot(_is_facing_right);
         }
 
 

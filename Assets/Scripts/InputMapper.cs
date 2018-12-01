@@ -17,13 +17,18 @@ namespace Sacrifice
         KeyCode _right_key;
 
 
+        [SerializeField]
+        KeyCode _shoot_key;
 
-        CharacterController2D cont;
+
+
+        CharacterController2D _cont;
+
 
 
         void Start()
         {
-            cont = gameObject.GetComponent<CharacterController2D>();
+            _cont = gameObject.GetComponent<CharacterController2D>();
         }
 
 
@@ -48,7 +53,9 @@ namespace Sacrifice
 
 
 
-            cont.Move(move, jump);
+            _cont.Move(move, jump);
+
+            if (Input.GetKeyDown(_shoot_key)) _cont.Shoot();
         }
 
 
