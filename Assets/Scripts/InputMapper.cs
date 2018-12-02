@@ -16,9 +16,11 @@ namespace Sacrifice
         [SerializeField]
         KeyCode _right_key;
 
-
         [SerializeField]
         KeyCode _shoot_key;
+
+        [SerializeField]
+        KeyCode _select_next_sacrfice;
 
 
         [SerializeField]
@@ -50,6 +52,8 @@ namespace Sacrifice
             _state.Move(move, jump);
 
             if (Input.GetKeyDown(_shoot_key)) _state.Shoot();
+
+            if (Input.GetKeyDown(_select_next_sacrfice)) _state.CycleNextSacrifice();
         }
 
 

@@ -103,8 +103,6 @@ namespace Sacrifice
         public void Move(float move, bool jump)
         {
 
-            Debug.Log(_move_speed);
-
             if (_is_grounded || _is_air_control_on)
             {
 

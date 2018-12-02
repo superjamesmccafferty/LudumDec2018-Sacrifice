@@ -38,7 +38,7 @@ namespace Sacrifice
         [SerializeField] float _bullet_damage_min = 1;
         [SerializeField] float _bullet_damage_sacrifice = 1;
 
-        [SerializeField] SSacrificeStats _chosen_sacrifice = SSacrificeStats.HEALTH;
+        [SerializeField] ESacrificeStats _chosen_sacrifice = ESacrificeStats.HEALTH;
 
 
 
@@ -64,6 +64,8 @@ namespace Sacrifice
         [SerializeField]
         ReliableEvent_SHealthState OnHealthStateChange = new ReliableEvent_SHealthState();
 
+        [SerializeField]
+        ReliableEvent_ESacrificeStats OnChosenSacrificeChange = new ReliableEvent_ESacrificeStats();
 
 
         // Attributes
@@ -79,7 +81,7 @@ namespace Sacrifice
 
         public float BulletDamage { get; private set; }
 
-        public SSacrificeStats ChosenSacrifice { get; private set; }
+        public ESacrificeStats ChosenSacrifice { get; private set; }
 
 
 
@@ -112,34 +114,38 @@ namespace Sacrifice
             SacrificeStat(_chosen_sacrifice);
         }
 
+        public void CycleNextSacrifice()
+        {
+            _chosen_sacrifice = UTEnum.CycleEnumNext<ESacrificeStats>(_chosen_sacrifice);
+        }
 
 
         // Sacrifice System
 
-        public void SacrificeStat(SSacrificeStats stat)
+        public void SacrificeStat(ESacrificeStats stat)
         {
             SacrificeStat(stat, 0);
         }
 
-        public void SacrificeStat(SSacrificeStats stat, int random_level)
+        public void SacrificeStat(ESacrificeStats stat, int random_level)
         {
             if (random_level >= 3) return;
 
             switch (stat)
             {
-                case SSacrificeStats.DAMAGE:
+                case ESacrificeStats.DAMAGE:
                     HandleRandomSacrifice(BulletDamage, _bullet_damage_min, _bullet_damage_sacrifice, random_level, ChangeBulletDamage);
                     return;
-                case SSacrificeStats.HEALTH:
+                case ESacrificeStats.HEALTH:
                     HandleRandomSacrifice(Health, _min_health, _health_sacrifice, random_level, ChangeTotalHealth);
                     return;
-                case SSacrificeStats.JUMP:
+                case ESacrificeStats.JUMP:
                     HandleRandomSacrifice(JumpForce, _jump_force_min, _jump_force_sacrifice, random_level, ChangeJumpForce);
                     return;
-                case SSacrificeStats.MOVEMENT:
+                case ESacrificeStats.MOVEMENT:
                     HandleRandomSacrifice(MovementSpeed, _movement_speed_min, _movement_speed_sacrifice, random_level, ChangeMovementSpeed);
                     return;
-                case SSacrificeStats.RANGE:
+                case ESacrificeStats.RANGE:
                     HandleRandomSacrifice(BulletForce, _bullet_force_min, _bullet_force_sacrifice, random_level, ChangeBulletForce);
                     return;
             }
@@ -168,7 +174,7 @@ namespace Sacrifice
 
         void RandomSacrifice(int sacrifice_level)
         {
-            SacrificeStat(UTEnum.Random<SSacrificeStats>(), sacrifice_level + 1);
+            SacrificeStat(UTEnum.Random<ESacrificeStats>(), sacrifice_level + 1);
         }
 
         // Statistic Changes
