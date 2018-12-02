@@ -12,6 +12,9 @@ namespace Sacrifice
         [SerializeField]
         float _inital_total_health = 100;
 
+        [SerializeField]
+        float _sacrifice_level = 10;
+
         [Header("Events")]
         [SerializeField]
         ReliableEvent_float OnDamage = new ReliableEvent_float();
@@ -38,7 +41,19 @@ namespace Sacrifice
 
         void RaiseHealthChange()
         {
-            OnHealthStateChange.Raise(new SHealthState(Health, TotalHealth, Health / TotalHealth));
+            OnHealthStateChange.Raise(new SHealthState(Health, TotalHealth, TotalHealth / _inital_total_health));
+        }
+
+        public void SacrficeStat()
+        {
+            float sacrifice = _sacrifice_level > TotalHealth ? TotalHealth - 1 : _sacrifice_level;
+            ChangeTotalHealth(-1 * sacrifice);
+        }
+
+        public void Hit()
+        {
+            Heal(_sacrifice_level);
+            Debug.Log("Happens");
         }
 
         /// <summary>
@@ -49,8 +64,14 @@ namespace Sacrifice
         {
 
             TotalHealth += change;
-            if (TotalHealth < 0) TotalHealth = 0;
+            if (TotalHealth < 0)
+            {
+                TotalHealth = 0;
+                OnDeath.Raise();
+            }
+
             RaiseHealthChange();
+
             if (Health >= TotalHealth) Health = TotalHealth;
 
         }
@@ -70,6 +91,18 @@ namespace Sacrifice
             RaiseHealthChange();
 
             if (Health == 0) OnDeath.Raise();
+        }
+
+        public void Heal(float health)
+        {
+
+            if (health <= 0) return;
+
+            Health += health;
+            if (Health > TotalHealth) Health = TotalHealth;
+
+            RaiseHealthChange();
+
         }
 
 

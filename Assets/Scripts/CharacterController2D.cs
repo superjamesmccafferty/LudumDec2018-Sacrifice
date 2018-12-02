@@ -37,8 +37,6 @@ namespace Sacrifice
 
 
 
-
-
         const float _grounded_radius = .2f;
 
         bool _is_grounded;
@@ -52,14 +50,11 @@ namespace Sacrifice
 
 
         [Header("Events")]
-        [Space]
-
         [SerializeField]
         ReliableEvent OnLand;
 
-
-
-
+        [SerializeField]
+        ReliableEvent OnJump;
 
 
 
@@ -117,6 +112,7 @@ namespace Sacrifice
             {
                 _is_grounded = false;
                 _rb2.AddForce(new Vector2(0f, _jump_force));
+                OnJump.Raise();
             }
         }
 
@@ -136,5 +132,20 @@ namespace Sacrifice
             theScale.x *= -1;
             transform.localScale = theScale;
         }
+
+
+        // --- EVENTS ---
+
+        CoreEventToken Subscribe_OnLand(UnityAction callback)
+        {
+            return OnLand.Subscribe(callback);
+        }
+
+        CoreEventToken Subscribe_OnJump(UnityAction callback)
+        {
+            return OnJump.Subscribe(callback);
+        }
+
+
     }
 }

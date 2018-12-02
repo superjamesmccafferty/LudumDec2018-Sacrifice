@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TobiasUN.Core.Events;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Sacrifice
 {
@@ -18,6 +20,10 @@ namespace Sacrifice
 
         [SerializeField]
         float force = 1000;
+
+        [Header("Events")]
+        [SerializeField]
+        ReliableEvent OnShoot;
 
 
         Vector3 _direction;
@@ -38,15 +44,19 @@ namespace Sacrifice
 
             Rigidbody2D rb2 = ob.GetComponent<Rigidbody2D>();
 
-
-
-            Debug.Log(new Vector2(force * direction_mod, 0));
+            ob.GetComponent<Projectile>().SetPlayerReference(gameObject.GetComponent<PlayerStateManager>());
 
             rb2.AddForce(new Vector2(force * direction_mod, 0), ForceMode2D.Force);
 
+            OnShoot.Raise();
 
         }
 
+        // --- EVENTS ---
+        CoreEventToken Subscribe_OnShoot(UnityAction callback)
+        {
+            return OnShoot.Subscribe(callback);
+        }
 
     }
 }

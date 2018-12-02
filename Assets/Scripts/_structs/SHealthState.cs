@@ -12,14 +12,14 @@ namespace Sacrifice
 
         public float TotalHealth { get; private set; }
 
-        public float PercentageHealth { get; private set; }
+        public float NonSacrifisedPercentage { get; private set; }
 
 
-        public SHealthState(float cur_health, float tot_health, float perc_health)
+        public SHealthState(float cur_health, float tot_health, float non_sacrifised_perc)
         {
             CurrentHealth = cur_health;
             TotalHealth = tot_health;
-            PercentageHealth = perc_health;
+            NonSacrifisedPercentage = non_sacrifised_perc;
         }
 
     }
