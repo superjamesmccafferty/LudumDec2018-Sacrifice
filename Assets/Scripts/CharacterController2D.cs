@@ -67,12 +67,15 @@ namespace Sacrifice
         void Start()
         {
             PlayerStateManager manager = gameObject.GetComponent<PlayerStateManager>();
+        }
 
-            _jump_force = manager.JumpForce;
-            _move_speed = manager.MovementSpeed;
+        public void Init(float jump_force, float move_speed, ReliableEvent_float move_speed_change, ReliableEvent_float jump_force_change)
+        {
+            _jump_force = jump_force;
+            _move_speed = move_speed;
 
-            manager.SubscribeOnMovementSpeedChange(m => _move_speed = m);
-            manager.SubscribeOnJumpForceChange(f => _jump_force = f);
+            move_speed_change.Subscribe(m => _move_speed = m);
+            jump_force_change.Subscribe(f => _jump_force = f);
         }
 
         void FixedUpdate()
@@ -99,6 +102,8 @@ namespace Sacrifice
 
         public void Move(float move, bool jump)
         {
+
+            Debug.Log(_move_speed);
 
             if (_is_grounded || _is_air_control_on)
             {

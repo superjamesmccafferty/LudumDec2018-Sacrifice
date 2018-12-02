@@ -25,24 +25,23 @@ namespace Sacrifice
 
         [Header("Events")]
         [SerializeField]
-        ReliableEvent_SSacrificeStats OnShoot;
+        ReliableEvent OnShoot;
 
 
         Vector3 _direction;
 
-        PlayerStateManager _manager;
-
         void Start()
         {
-            _manager = gameObject.GetComponent<PlayerStateManager>();
-
-            _force = _manager.BulletForce;
-            _damage = _manager.BulletDamage;
-
-            _manager.SubscribeOnBulletForceChange(f => _force = f);
-            _manager.SubscribeOnBulletDamageChange(f => _damage = f);
-
             _direction = (_direction_end.position - _direction_start.position).normalized;
+        }
+
+        public void Init(float force, float damage, ReliableEvent_float force_change_event, ReliableEvent_float bullet_damage_event)
+        {
+            _force = force;
+            _damage = damage;
+
+            force_change_event.Subscribe(f => _force = f);
+            bullet_damage_event.Subscribe(f => _damage = f);
         }
 
         public void Shoot(bool is_right)
@@ -60,12 +59,12 @@ namespace Sacrifice
             Rigidbody2D rb2 = ob.GetComponent<Rigidbody2D>();
             rb2.AddForce(new Vector2(_force * direction_mod, 0), ForceMode2D.Force);
 
-            OnShoot.Raise(_manager.ChosenSacrifice);
+            OnShoot.Raise();
 
         }
 
         // --- EVENTS ---
-        CoreEventToken Subscribe_OnShoot(UnityAction<SSacrificeStats> callback)
+        CoreEventToken Subscribe_OnShoot(UnityAction callback)
         {
             return OnShoot.Subscribe(callback);
         }

@@ -12,6 +12,11 @@ namespace Sacrifice
     public class PlayerStateManager : MonoBehaviour, IDamagable
     {
 
+        [Header("Character Control")]
+        [SerializeField] CharacterController2D _controller;
+        [SerializeField] ShootManager _shot_manager;
+
+
         [Header("Settings")]
         [SerializeField] float _inital_total_health = 100;
         [SerializeField] float _min_health = 1;
@@ -87,8 +92,29 @@ namespace Sacrifice
             BulletForce = _initial_bullet_force;
             BulletDamage = _initial_bullet_damage;
             ChosenSacrifice = _chosen_sacrifice;
+
+
+            _shot_manager.Init(BulletForce, BulletDamage, OnBulletForceChange, OnBulletDamageChange);
+            _controller.Init(JumpForce, MovementSpeed, OnMovementSpeedChange, OnJumpForceChange);
         }
 
+
+        // Controls
+
+        public void Move(float move, bool jump)
+        {
+            _controller.Move(move, jump);
+        }
+
+        public void Shoot()
+        {
+            _controller.Shoot();
+            SacrificeStat(_chosen_sacrifice);
+        }
+
+
+
+        // Sacrifice System
 
         public void SacrificeStat(SSacrificeStats stat)
         {
@@ -145,10 +171,8 @@ namespace Sacrifice
             SacrificeStat(UTEnum.Random<SSacrificeStats>(), sacrifice_level + 1);
         }
 
-        /// <summary>
-        /// Change the total health of the player. Cannot go below 0
-        /// </summary>
-        /// <param name="change">Amount to change health by</param>
+        // Statistic Changes
+
         public void ChangeTotalHealth(float change)
         {
             TotalHealth += change;
