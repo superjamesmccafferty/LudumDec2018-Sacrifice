@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartMenu : MonoBehaviour {
+namespace Sacrifice 
+{
+    public class StartMenu : MonoBehaviour
+    {
+        public GameSessionManager GSManager;
 
-  public GameSessionManager GSManager;
+        void Start()
+        {
+            GSManager = GameObject.Find("GameSessionManager").GetComponent<GameSessionManager>();
+        }
 
-  void Start()
-  {
-    GSManager = GameObject.Find("GameSessionManager").GetComponent<GameSessionManager>();
-  }
-
-  public void StartSession(int nbPlayer)
-  {
-    // Show menu to set character name, color and set Keybinds
-    GSManager.StartNewSession(nbPlayer);
-  }
+        public void StartSession(int nbPlayer)
+        {
+            // Show menu to set character name, color and set Keybinds
+            GSManager.StartNewSession(nbPlayer);
+        }
+    }
 }
+
