@@ -98,6 +98,8 @@ namespace Sacrifice
 
             _shot_manager.Init(BulletForce, BulletDamage, OnBulletForceChange, OnBulletDamageChange);
             _controller.Init(JumpForce, MovementSpeed, OnMovementSpeedChange, OnJumpForceChange);
+
+            OnChosenSacrificeChange.Raise(ChosenSacrifice);
         }
 
 
@@ -111,14 +113,20 @@ namespace Sacrifice
         public void Shoot()
         {
             _controller.Shoot();
-            SacrificeStat(_chosen_sacrifice);
+            SacrificeStat(ChosenSacrifice);
         }
 
         public void CycleNextSacrifice()
         {
-            _chosen_sacrifice = UTEnum.CycleEnumNext<ESacrificeStats>(_chosen_sacrifice);
+            ChosenSacrifice = UTEnum.CycleEnumNext<ESacrificeStats>(ChosenSacrifice);
+            OnChosenSacrificeChange.Raise(ChosenSacrifice);
         }
 
+        public void ChooseRandomSacrifice()
+        {
+            ChosenSacrifice = UTEnum.Random<ESacrificeStats>();
+            OnChosenSacrificeChange.Raise(ChosenSacrifice);
+        }
 
         // Sacrifice System
 
@@ -279,5 +287,10 @@ namespace Sacrifice
             return OnBulletDamageChange.Subscribe(callback);
         }
 
+
+        public CoreEventToken SubscribeOnChosenSacrificeChange(UnityAction<ESacrificeStats> callback)
+        {
+            return OnChosenSacrificeChange.Subscribe(callback);
+        }
     }
 }

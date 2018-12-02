@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sacrifice;
 using UnityEngine.Events;
- 
+
 namespace TobiasUN.Core.Events
 {
     [System.Serializable()]
