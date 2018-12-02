@@ -44,8 +44,6 @@ namespace Sacrifice
 
             Rigidbody2D rb2 = ob.GetComponent<Rigidbody2D>();
 
-            ob.GetComponent<Projectile>().SetPlayerReference(gameObject.GetComponent<PlayerStateManager>());
-
             rb2.AddForce(new Vector2(force * direction_mod, 0), ForceMode2D.Force);
 
             OnShoot.Raise();
