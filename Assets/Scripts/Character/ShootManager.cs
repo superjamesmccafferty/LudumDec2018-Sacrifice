@@ -63,6 +63,8 @@ namespace Sacrifice
                 _direction.y * _force
             );
 
+            Debug.Log(force_to_add);
+
             rb2.AddForce(force_to_add, ForceMode2D.Force);
 
             OnShoot.Raise();

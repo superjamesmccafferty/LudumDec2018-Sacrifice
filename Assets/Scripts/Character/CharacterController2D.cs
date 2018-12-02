@@ -47,14 +47,21 @@ namespace Sacrifice
 
         Vector3 _velocity = Vector3.zero;
 
+        bool _just_shot = false;
 
 
         [Header("Events")]
         [SerializeField]
         ReliableEvent OnLand;
 
-        [SerializeField]
-        ReliableEvent OnJump;
+        [SerializeField] ReliableEvent OnJumpStart;
+        [SerializeField] ReliableEvent OnJumpStop;
+        [SerializeField] ReliableEvent OnRunStart;
+        [SerializeField] ReliableEvent OnRunStop;
+        [SerializeField] ReliableEvent OnAttackStart;
+        [SerializeField] ReliableEvent OnAttackStop;
+
+
 
 
 
@@ -104,8 +111,17 @@ namespace Sacrifice
                 {
                     _is_grounded = true;
                     if (!wasGrounded)
+                    {
                         OnLand.Raise();
+                        OnJumpStop.Raise();
+                    }
                 }
+            }
+
+            if (_just_shot)
+            {
+                _just_shot = false;
+                OnAttackStop.Raise();
             }
         }
 
@@ -130,13 +146,24 @@ namespace Sacrifice
                 // If the input is moving the player right and the player is facing left...
                 if ((move > 0 && !_is_facing_right) || (move < 0 && _is_facing_right))
                     Flip();
+
+                if (Mathf.Abs(move) > 0)
+                {
+                    OnRunStart.Raise();
+                }
+                else
+                {
+                    OnRunStop.Raise();
+                }
             }
 
             if (_is_grounded && jump)
             {
+                OnJumpStart.Raise();
+
                 _is_grounded = false;
                 _rb2.AddForce(new Vector2(0f, _jump_force));
-                OnJump.Raise();
+                OnJumpStart.Raise();
             }
         }
 
@@ -148,6 +175,8 @@ namespace Sacrifice
         public void Shoot()
         {
             _shoot_manager.Shoot(_is_facing_right);
+            OnAttackStart.Raise();
+            _just_shot = true;
         }
 
 
@@ -165,14 +194,34 @@ namespace Sacrifice
 
         // --- EVENTS ---
 
-        CoreEventToken Subscribe_OnLand(UnityAction callback)
+        public CoreEventToken Subscribe_OnLand(UnityAction callback)
         {
             return OnLand.Subscribe(callback);
         }
 
-        CoreEventToken Subscribe_OnJump(UnityAction callback)
+        public CoreEventToken Subscribe_OnJumpStart(UnityAction callback)
         {
-            return OnJump.Subscribe(callback);
+            return OnJumpStart.Subscribe(callback);
+        }
+        public CoreEventToken Subscribe_OnJumpStop(UnityAction callback)
+        {
+            return OnJumpStop.Subscribe(callback);
+        }
+        public CoreEventToken Subscribe_OnRunStart(UnityAction callback)
+        {
+            return OnRunStart.Subscribe(callback);
+        }
+        public CoreEventToken Subscribe_OnRunStop(UnityAction callback)
+        {
+            return OnRunStop.Subscribe(callback);
+        }
+        public CoreEventToken Subscribe_OnAttackStart(UnityAction callback)
+        {
+            return OnAttackStart.Subscribe(callback);
+        }
+        public CoreEventToken Subscribe_OnAttackStop(UnityAction callback)
+        {
+            return OnAttackStop.Subscribe(callback);
         }
 
 
