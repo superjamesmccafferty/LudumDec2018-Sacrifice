@@ -136,6 +136,11 @@ namespace Sacrifice
             ChangeHealth(-1 * damage);
         }
 
+        public void PowerUp(EPowerUp power)
+        {
+            Debug.Log(power);
+        }
+
         // Sacrifice System
 
         public void SacrificeStat(ESacrificeStats stat)
@@ -300,5 +305,6 @@ namespace Sacrifice
         {
             return OnChosenSacrificeChange.Subscribe(callback);
         }
+
     }
 }
