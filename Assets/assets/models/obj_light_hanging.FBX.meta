@@ -1,20 +1,26 @@
 fileFormatVersion: 2
-guid: 0080b0b56ecf64d49a61106c0624adcb
+guid: df3d6cf23b42ecb4995607c235f3d8a9
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: 'Material #25'
+    2100000: 'Material #26'
+    2100002: 'Material #25'
     2300000: //RootNode
     3300000: //RootNode
-    4300000: obj_platform_2
+    4300000: obj_light_hanging
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: 'Material #25'
     second: {fileID: 2100000, guid: ef313fe150ec50c45a71fe220196c99d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #26'
+    second: {fileID: 2100000, guid: fe874953da1a21940b85a72f4e085fba, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -50,8 +56,8 @@ ModelImporter:
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
