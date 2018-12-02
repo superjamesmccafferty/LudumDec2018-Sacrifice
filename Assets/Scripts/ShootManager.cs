@@ -57,7 +57,13 @@ namespace Sacrifice
             proj.Damage = _damage;
 
             Rigidbody2D rb2 = ob.GetComponent<Rigidbody2D>();
-            rb2.AddForce(new Vector2(_force * direction_mod, 0), ForceMode2D.Force);
+
+            Vector2 force_to_add = new Vector2(
+                _direction.x * direction_mod * _force,
+                _direction.y * _force
+            );
+
+            rb2.AddForce(force_to_add, ForceMode2D.Force);
 
             OnShoot.Raise();
 
