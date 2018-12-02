@@ -13,12 +13,14 @@ namespace Sacrifice
     {
 
         [Header("Character Control")]
-        [SerializeField] CharacterController2D _controller;
+        [SerializeField]
+        CharacterController2D _controller;
         [SerializeField] ShootManager _shot_manager;
 
 
         [Header("Settings")]
-        [SerializeField] float _inital_total_health = 100;
+        [SerializeField]
+        float _inital_total_health = 100;
         [SerializeField] float _min_health = 1;
         [SerializeField] float _health_sacrifice = 10;
 
@@ -126,6 +128,12 @@ namespace Sacrifice
         {
             ChosenSacrifice = UTEnum.Random<ESacrificeStats>();
             OnChosenSacrificeChange.Raise(ChosenSacrifice);
+        }
+
+        public void BumFire(float force, float damage)
+        {
+            _controller.BumFire(force);
+            ChangeHealth(-1 * damage);
         }
 
         // Sacrifice System
