@@ -27,7 +27,7 @@ namespace Sacrifice
         LayerMask _ground_mask;
 
         [SerializeField]
-        Transform _ground_check;
+        Transform[] _ground_check;
 
         //[SerializeField]
         float _move_speed = 10;
@@ -83,12 +83,22 @@ namespace Sacrifice
             bool wasGrounded = _is_grounded;
             _is_grounded = false;
 
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(
-                _ground_check.position,
-                _grounded_radius,
-                _ground_mask);
+            List<Collider2D> colliders = new List<Collider2D>();
 
-            for (int i = 0; i < colliders.Length; i++)
+            foreach (Transform t in _ground_check)
+            {
+                Collider2D[] temp_col = Physics2D.OverlapCircleAll(
+                   t.position,
+                   _grounded_radius,
+                   _ground_mask);
+
+                foreach (Collider2D col in temp_col)
+                {
+                    colliders.Add(col);
+                }
+            }
+
+            for (int i = 0; i < colliders.Count; i++)
             {
                 if (colliders[i].gameObject != gameObject)
                 {
@@ -128,6 +138,11 @@ namespace Sacrifice
                 _rb2.AddForce(new Vector2(0f, _jump_force));
                 OnJump.Raise();
             }
+        }
+
+        public void BumFire(float force)
+        {
+            _rb2.velocity += new Vector2(0, force);
         }
 
         public void Shoot()
