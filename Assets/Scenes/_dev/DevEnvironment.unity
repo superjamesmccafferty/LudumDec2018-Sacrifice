@@ -887,6 +887,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114108461957634658, guid: 0812df424dd5a4542934aa9d647c68a7,
+        type: 2}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4288358976829582, guid: 0812df424dd5a4542934aa9d647c68a7, type: 2}
       propertyPath: m_LocalPosition.x
       value: -11.17
@@ -919,9 +924,120 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114121406038292202, guid: 0812df424dd5a4542934aa9d647c68a7,
+        type: 2}
+      propertyPath: _initial_movement_speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114121406038292202, guid: 0812df424dd5a4542934aa9d647c68a7,
+        type: 2}
+      propertyPath: _initial_jump_force
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114121406038292202, guid: 0812df424dd5a4542934aa9d647c68a7,
+        type: 2}
+      propertyPath: _initial_bullet_force
+      value: 2500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114121406038292202, guid: 0812df424dd5a4542934aa9d647c68a7,
+        type: 2}
+      propertyPath: _initial_bullet_damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108461957634658, guid: 0812df424dd5a4542934aa9d647c68a7,
+        type: 2}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1717484679}
+    - target: {fileID: 114108461957634658, guid: 0812df424dd5a4542934aa9d647c68a7,
+        type: 2}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SacrficeStat
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108461957634658, guid: 0812df424dd5a4542934aa9d647c68a7,
+        type: 2}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108461957634658, guid: 0812df424dd5a4542934aa9d647c68a7,
+        type: 2}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108461957634658, guid: 0812df424dd5a4542934aa9d647c68a7,
+        type: 2}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433403536971358, guid: 0812df424dd5a4542934aa9d647c68a7,
+        type: 2}
+      propertyPath: OnShoot.evt
+      value: 
+      objectReference: {fileID: 11400000, guid: 88601d13eb9a294439bbb5e6d58205c2,
+        type: 2}
+    - target: {fileID: 114121406038292202, guid: 0812df424dd5a4542934aa9d647c68a7,
+        type: 2}
+      propertyPath: _chosen_sacrifice
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114121406038292202, guid: 0812df424dd5a4542934aa9d647c68a7,
+        type: 2}
+      propertyPath: _movement_speed_min
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114121406038292202, guid: 0812df424dd5a4542934aa9d647c68a7,
+        type: 2}
+      propertyPath: _jump_force_min
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114121406038292202, guid: 0812df424dd5a4542934aa9d647c68a7,
+        type: 2}
+      propertyPath: _bullet_force_min
+      value: 500
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114108461957634658, guid: 0812df424dd5a4542934aa9d647c68a7, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 0812df424dd5a4542934aa9d647c68a7, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1717484675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1762969368739064, guid: 0812df424dd5a4542934aa9d647c68a7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1715193556}
+--- !u!114 &1717484676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1717484675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d7d1b283805ef479619b5c42f09f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 88601d13eb9a294439bbb5e6d58205c2, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1717484679}
+        m_MethodName: SacrificeStat
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: TobiasUN.Core.Events.UnityEvent_SSacrificeStats, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &1717484679 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114121406038292202, guid: 0812df424dd5a4542934aa9d647c68a7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1715193556}
+  m_Script: {fileID: 11500000, guid: 0a4d0d5273ea7384bb5e8abcbab1913a, type: 3}
 --- !u!1001 &1732569687
 Prefab:
   m_ObjectHideFlags: 0

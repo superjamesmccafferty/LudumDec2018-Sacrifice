@@ -33,6 +33,8 @@ namespace Sacrifice
         [SerializeField] float _bullet_damage_min = 1;
         [SerializeField] float _bullet_damage_sacrifice = 1;
 
+        [SerializeField] SSacrificeStats _chosen_sacrifice = SSacrificeStats.HEALTH;
+
 
 
         [Header("Events")]
@@ -72,6 +74,7 @@ namespace Sacrifice
 
         public float BulletDamage { get; private set; }
 
+        public SSacrificeStats ChosenSacrifice { get; private set; }
 
 
 
@@ -83,12 +86,7 @@ namespace Sacrifice
             JumpForce = _initial_jump_force;
             BulletForce = _initial_bullet_force;
             BulletDamage = _initial_bullet_damage;
-
-            RaiseOnHealthChange();
-            OnMovementSpeedChange.Raise(MovementSpeed);
-            OnJumpForceChange.Raise(JumpForce);
-            OnBulletForceChange.Raise(BulletForce);
-            OnBulletDamageChange.Raise(BulletDamage);
+            ChosenSacrifice = _chosen_sacrifice;
         }
 
 
@@ -107,7 +105,7 @@ namespace Sacrifice
                     HandleRandomSacrifice(BulletDamage, _bullet_damage_min, _bullet_damage_sacrifice, random_level, ChangeBulletDamage);
                     return;
                 case SSacrificeStats.HEALTH:
-                    HandleRandomSacrifice(Health, _min_health, _health_sacrifice, random_level, ChangeHealth);
+                    HandleRandomSacrifice(Health, _min_health, _health_sacrifice, random_level, ChangeTotalHealth);
                     return;
                 case SSacrificeStats.JUMP:
                     HandleRandomSacrifice(JumpForce, _jump_force_min, _jump_force_sacrifice, random_level, ChangeJumpForce);
@@ -116,7 +114,7 @@ namespace Sacrifice
                     HandleRandomSacrifice(MovementSpeed, _movement_speed_min, _movement_speed_sacrifice, random_level, ChangeMovementSpeed);
                     return;
                 case SSacrificeStats.RANGE:
-                    HandleRandomSacrifice(BulletForce, _bullet_force_min, _bullet_damage_sacrifice, random_level, ChangeBulletForce);
+                    HandleRandomSacrifice(BulletForce, _bullet_force_min, _bullet_force_sacrifice, random_level, ChangeBulletForce);
                     return;
             }
 
@@ -125,6 +123,7 @@ namespace Sacrifice
         void HandleRandomSacrifice(float current, float min, float sacrifice, int random_level, UnityAction<float> change_function)
         {
             float change = ModdedSacrifice(current, min, sacrifice);
+
             if (change >= 0)
             {
                 RandomSacrifice(random_level + 1);
@@ -193,7 +192,7 @@ namespace Sacrifice
         public void ChangeBulletForce(float change)
         {
             BulletForce += change;
-            OnBulletForceChange.Raise(change);
+            OnBulletForceChange.Raise(BulletForce);
         }
 
         public void ChangeBulletDamage(float change)

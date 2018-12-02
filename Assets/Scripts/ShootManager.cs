@@ -18,18 +18,30 @@ namespace Sacrifice
         [SerializeField]
         Transform _direction_end;
 
-        [SerializeField]
-        float force = 1000;
+        //[SerializeField]
+        float _force = 1000;
+
+        float _damage = 10;
 
         [Header("Events")]
         [SerializeField]
-        ReliableEvent OnShoot;
+        ReliableEvent_SSacrificeStats OnShoot;
 
 
         Vector3 _direction;
 
+        PlayerStateManager _manager;
+
         void Start()
         {
+            _manager = gameObject.GetComponent<PlayerStateManager>();
+
+            _force = _manager.BulletForce;
+            _damage = _manager.BulletDamage;
+
+            _manager.SubscribeOnBulletForceChange(f => _force = f);
+            _manager.SubscribeOnBulletDamageChange(f => _damage = f);
+
             _direction = (_direction_end.position - _direction_start.position).normalized;
         }
 
@@ -42,16 +54,18 @@ namespace Sacrifice
                 _direction_start.position + _direction * direction_mod / 2,
                 Quaternion.identity);
 
+            Projectile proj = ob.GetComponent<Projectile>();
+            proj.Damage = _damage;
+
             Rigidbody2D rb2 = ob.GetComponent<Rigidbody2D>();
+            rb2.AddForce(new Vector2(_force * direction_mod, 0), ForceMode2D.Force);
 
-            rb2.AddForce(new Vector2(force * direction_mod, 0), ForceMode2D.Force);
-
-            OnShoot.Raise();
+            OnShoot.Raise(_manager.ChosenSacrifice);
 
         }
 
         // --- EVENTS ---
-        CoreEventToken Subscribe_OnShoot(UnityAction callback)
+        CoreEventToken Subscribe_OnShoot(UnityAction<SSacrificeStats> callback)
         {
             return OnShoot.Subscribe(callback);
         }

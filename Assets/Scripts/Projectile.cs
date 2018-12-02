@@ -8,12 +8,15 @@ namespace Sacrifice
     public class Projectile : MonoBehaviour
     {
 
+        public float Damage { get; set; } = 10;
+
+
         void OnCollisionEnter2D(Collision2D col)
         {
 
             IDamagable dam = col.gameObject.GetComponent<IDamagable>();
 
-            dam?.Damage(10f);
+            dam?.Damage(Damage);
 
             Destroy(gameObject);
 

@@ -12,8 +12,8 @@ namespace Sacrifice
 
         [Header("Movement Configuration")]
 
-        [SerializeField]
-        [Tooltip("The force with which the player jumps")]
+        //[SerializeField]
+        //[Tooltip("The force with which the player jumps")]
         float _jump_force = 400f;
 
         [Range(0, .3f)]
@@ -29,7 +29,7 @@ namespace Sacrifice
         [SerializeField]
         Transform _ground_check;
 
-        [SerializeField]
+        //[SerializeField]
         float _move_speed = 10;
 
         [SerializeField]
@@ -62,6 +62,17 @@ namespace Sacrifice
         void Awake()
         {
             _rb2 = GetComponent<Rigidbody2D>();
+        }
+
+        void Start()
+        {
+            PlayerStateManager manager = gameObject.GetComponent<PlayerStateManager>();
+
+            _jump_force = manager.JumpForce;
+            _move_speed = manager.MovementSpeed;
+
+            manager.SubscribeOnMovementSpeedChange(m => _move_speed = m);
+            manager.SubscribeOnJumpForceChange(f => _jump_force = f);
         }
 
         void FixedUpdate()
