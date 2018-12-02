@@ -8,23 +8,23 @@ namespace Sacrifice
     public class Projectile : MonoBehaviour
     {
 
-        PlayerStateManager _shooting_player;
+        public float Damage { get; set; } = 10;
 
-        public void SetPlayerReference(PlayerStateManager reference)
-        {
-            _shooting_player = reference;
-        }
+        int _bounce_count = 0;
 
         void OnCollisionEnter2D(Collision2D col)
         {
-
-            if (col.gameObject.tag == "Player") _shooting_player?.Hit();
+            _bounce_count++;
 
             IDamagable dam = col.gameObject.GetComponent<IDamagable>();
 
-            dam?.Damage(10f);
+            dam?.Damage(Damage);
 
-            Destroy(gameObject);
+            if (_bounce_count >= 5)
+            {
+                Destroy(gameObject);
+            }
+
 
         }
 
