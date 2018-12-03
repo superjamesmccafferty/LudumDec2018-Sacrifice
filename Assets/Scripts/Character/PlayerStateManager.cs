@@ -7,10 +7,18 @@ using TobiasUN.Core.Utilities.Code.Types;
 using UnityEngine;
 using UnityEngine.Events;
 
+using TMPro;
+
 namespace Sacrifice
 {
     public class PlayerStateManager : MonoBehaviour, IDamagable
     {
+
+        [Header("Player Names")]
+        public GameSettings _game_settings;
+        public int id;
+        public string name;
+        public TextMeshProUGUI name_text;
 
         [Header("Character Control")]
         [SerializeField]
@@ -120,6 +128,9 @@ namespace Sacrifice
             _controller.Init(JumpForce, MovementSpeed, OnMovementSpeedChange, OnJumpForceChange);
 
             OnChosenSacrificeChange.Raise(ChosenSacrifice);
+
+            name = _game_settings.getName(id);
+            name_text.text = name;
         }
 
 
