@@ -70,6 +70,22 @@ namespace Sacrifice
         ReliableEvent_ESacrificeStats OnChosenSacrificeChange = new ReliableEvent_ESacrificeStats();
 
 
+
+
+
+        [SerializeField]
+        ReliableEvent_float OnMovementSpeedChange_Perc = new ReliableEvent_float();
+
+        [SerializeField]
+        ReliableEvent_float OnJumpForceChange_Perc = new ReliableEvent_float();
+
+        [SerializeField]
+        ReliableEvent_float OnBulletForceChange_Perc = new ReliableEvent_float();
+
+        [SerializeField]
+        ReliableEvent_float OnBulletDamageChange_Perc = new ReliableEvent_float();
+
+
         // Attributes
         public float Health { get; private set; }
 
@@ -232,24 +248,30 @@ namespace Sacrifice
         {
             MovementSpeed += change;
             OnMovementSpeedChange.Raise(MovementSpeed);
+            OnMovementSpeedChange_Perc.Raise((MovementSpeed - _movement_speed_min) / (_initial_movement_speed - _movement_speed_min));
         }
 
         public void ChangeJumpForce(float change)
         {
             JumpForce += change;
             OnJumpForceChange.Raise(JumpForce);
+            OnJumpForceChange_Perc.Raise((JumpForce - _jump_force_min) / (_initial_jump_force - _jump_force_min));
         }
 
         public void ChangeBulletForce(float change)
         {
             BulletForce += change;
             OnBulletForceChange.Raise(BulletForce);
+            OnBulletForceChange_Perc.Raise((BulletForce - _bullet_force_min) / (_initial_bullet_force - _bullet_force_min));
+
         }
 
         public void ChangeBulletDamage(float change)
         {
             BulletDamage += change;
             OnBulletDamageChange.Raise(BulletDamage);
+            OnBulletDamageChange_Perc.Raise((BulletDamage - _bullet_damage_min) / (_initial_bullet_damage - _bullet_damage_min));
+
         }
 
 
