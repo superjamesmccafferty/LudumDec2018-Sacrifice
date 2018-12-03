@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace Sacrifice 
 {
-    public class LevelManager : MonoBehaviour
+    public class LevelManager
     {
         private List<string> _levels;
         private List<string> _availableLevels;
@@ -32,6 +32,11 @@ namespace Sacrifice
             int levelIndex = Random.Range(0, _availableLevels.Count);
             SceneManager.LoadScene(_availableLevels[levelIndex]);
             _availableLevels.RemoveAt(levelIndex);
+        }
+
+        public void ReturnToMenu()
+        {
+            SceneManager.LoadScene(0);
         }
 
         /// <summary>
