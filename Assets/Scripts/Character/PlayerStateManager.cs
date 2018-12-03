@@ -102,6 +102,8 @@ namespace Sacrifice
         public ESacrificeStats ChosenSacrifice { get; private set; }
 
 
+        bool _can_shoot = true;
+
 
         void Start()
         {
@@ -130,8 +132,17 @@ namespace Sacrifice
 
         public void Shoot()
         {
-            _controller.Shoot();
-            SacrificeStat(ChosenSacrifice);
+            if (_can_shoot)
+            {
+                _controller.Shoot();
+                SacrificeStat(ChosenSacrifice);
+                _can_shoot = false;
+            }
+        }
+
+        public void CanShoot()
+        {
+            _can_shoot = true;
         }
 
         public void CycleNextSacrifice()
@@ -166,7 +177,7 @@ namespace Sacrifice
 
         public void SacrificeStat(ESacrificeStats stat, int random_level)
         {
-            if (random_level >= 3) return;
+            if (random_level >= 20) return;
 
             switch (stat)
             {
