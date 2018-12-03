@@ -670,7 +670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1374798498226956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,7 +2518,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699226030471686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.81, y: 6.98, z: 0}
+  m_LocalPosition: {x: 9.39, y: 24.14, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 4658846985890374}
@@ -3824,20 +3824,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _controller: {fileID: 114999652706157874}
   _shot_manager: {fileID: 114055401559065638}
-  _inital_total_health: 100
-  _min_health: 1
+  _inital_total_health: 20
+  _min_health: 5
   _health_sacrifice: 2.5
   _initial_movement_speed: 15
   _movement_speed_min: 3
-  _movement_speed_sacrifice: 0.5
+  _movement_speed_sacrifice: 2
   _initial_jump_force: 1500
-  _jump_force_min: 500
-  _jump_force_sacrifice: 100
-  _initial_bullet_force: 2500
-  _bullet_force_min: 500
-  _bullet_force_sacrifice: 100
-  _initial_bullet_damage: 10
-  _bullet_damage_min: 1
+  _jump_force_min: 300
+  _jump_force_sacrifice: 200
+  _initial_bullet_force: 2200
+  _bullet_force_min: 700
+  _bullet_force_sacrifice: 250
+  _initial_bullet_damage: 4
+  _bullet_damage_min: 0.5
   _bullet_damage_sacrifice: 1
   _chosen_sacrifice: 0
   OnDeath:
@@ -3855,7 +3855,15 @@ MonoBehaviour:
   OnHealthStateChange:
     evt: {fileID: 11400000, guid: 04d94b9dc9a0af14b956ee815a3816bb, type: 2}
   OnChosenSacrificeChange:
-    evt: {fileID: 11400000, guid: 8e3efbcdbd56e4c42bfaa5f6edb26067, type: 2}
+    evt: {fileID: 11400000, guid: 980f447f37f6e8c46b85448c92a8dbae, type: 2}
+  OnMovementSpeedChange_Perc:
+    evt: {fileID: 11400000, guid: 951cc9bf9c4a8664fb26232317f0e5c9, type: 2}
+  OnJumpForceChange_Perc:
+    evt: {fileID: 11400000, guid: d4b30c2dffe683f4e84be74766008333, type: 2}
+  OnBulletForceChange_Perc:
+    evt: {fileID: 11400000, guid: a658bfcfb5b4bb545bfc9ee042209a28, type: 2}
+  OnBulletDamageChange_Perc:
+    evt: {fileID: 11400000, guid: 78ca06f737aebac47a7ce975aaccb7b9, type: 2}
 --- !u!114 &114938012926197742
 MonoBehaviour:
   m_ObjectHideFlags: 1

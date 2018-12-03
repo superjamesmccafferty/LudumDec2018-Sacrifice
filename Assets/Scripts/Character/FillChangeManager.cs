@@ -24,6 +24,13 @@ namespace Sacrifice
             _image.fillAmount = (health.CurrentHealth / health.TotalHealth) * (health.NonSacrifisedPercentage);
         }
 
+
+        public void FillWithCurrentHealth(float fill)
+        {
+            _image.fillAmount = fill;
+        }
+
+
         public void FillWithSacrificedHealth(SHealthState health)
         {
             _image.fillAmount = 1 - health.NonSacrifisedPercentage;
