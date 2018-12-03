@@ -11,19 +11,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Flat Earth Scribe
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 496275033
   material: {fileID: 21465992585529292}
-  materialHashCode: 0
+  materialHashCode: -1961895118
   fontAssetType: 2
   m_fontInfo:
     Name: Flat Earth Scribe
     PointSize: 158
-    Scale: 0
+    Scale: 1
     CharacterCount: 74
     LineHeight: 158
     Baseline: 0
     Ascender: 159
-    CapHeight: 0
+    CapHeight: 158
     Descender: 27
     CenterLine: 0
     SuperscriptOffset: 159
@@ -33,7 +33,7 @@ MonoBehaviour:
     UnderlineThickness: 5
     strikethrough: 67.63636
     strikethroughThickness: 5
-    TabWidth: 0
+    TabWidth: 840
     Padding: 9
     AtlasWidth: 1024
     AtlasHeight: 1024
@@ -42,10 +42,10 @@ MonoBehaviour:
   - id: 32
     x: 9
     y: 1015
-    width: 0
-    height: 0
+    width: 84
+    height: 132
     xOffset: 0
-    yOffset: 0
+    yOffset: 159
     xAdvance: 84
     scale: 1
   - id: 33
