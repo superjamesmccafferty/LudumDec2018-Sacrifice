@@ -13,7 +13,7 @@ namespace Sacrifice
         public LevelManager()
         {
             _levels = new List<string>();
-            _levels.Add("level_01");
+            _levels.Add("Final_MainLevel");
 
             ResetAvailableLevels();
         }
