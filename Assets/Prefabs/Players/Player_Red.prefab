@@ -2517,7 +2517,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699226030471686}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -11.17, y: -0.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3400,7 +3400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d66aa20d48403498374516ae792835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 1870649125509304, guid: 479d67e3016a8ff4ab71e062d365d5bd,
+  _projectile: {fileID: 1870649125509304, guid: 2385a8835a8f7f0468655d82e1900fcd,
     type: 2}
   _direction_start: {fileID: 4742474188050992}
   _direction_end: {fileID: 4026989243657064}
@@ -3685,7 +3685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d1062de627d6f4681ef2c1ffb71d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 8337f9543514bf8499c01ff72f92df8a, type: 2}
+  _event: {fileID: 11400000, guid: 08c1dce51acd1c049b1078cd873161d7, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
@@ -3806,10 +3806,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c376aa4c9769b04eab4861eb73b7e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jump_key: 119
-  _left_key: 97
-  _right_key: 100
-  _shoot_key: 32
+  _jump_key: 115
+  _left_key: 113
+  _right_key: 122
+  _shoot_key: 306
   _state: {fileID: 114790579723081504}
 --- !u!114 &114790579723081504
 MonoBehaviour:
@@ -3853,7 +3853,7 @@ MonoBehaviour:
   OnBulletDamageChange:
     evt: {fileID: 0}
   OnHealthStateChange:
-    evt: {fileID: 11400000, guid: 8337f9543514bf8499c01ff72f92df8a, type: 2}
+    evt: {fileID: 11400000, guid: 08c1dce51acd1c049b1078cd873161d7, type: 2}
   OnChosenSacrificeChange:
     evt: {fileID: 11400000, guid: 8e3efbcdbd56e4c42bfaa5f6edb26067, type: 2}
 --- !u!114 &114938012926197742
@@ -3867,7 +3867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d1062de627d6f4681ef2c1ffb71d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 8337f9543514bf8499c01ff72f92df8a, type: 2}
+  _event: {fileID: 11400000, guid: 08c1dce51acd1c049b1078cd873161d7, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:

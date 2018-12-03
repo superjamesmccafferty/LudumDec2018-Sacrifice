@@ -2518,8 +2518,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699226030471686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.17, y: -0.76, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 17.96, y: -0.76, z: 0}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 4658846985890374}
   - {fileID: 4885090953651046}
@@ -3356,8 +3356,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.020792961, y: 0.4648707}
-  m_Size: {x: 0.497324, y: 1.0162311}
+  m_Offset: {x: 0.092558496, y: 0.6890704}
+  m_Size: {x: 0.54998106, y: 1.4646307}
   m_Direction: 0
 --- !u!95 &95686673547784990
 Animator:
@@ -3400,7 +3400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d66aa20d48403498374516ae792835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 1870649125509304, guid: 479d67e3016a8ff4ab71e062d365d5bd,
+  _projectile: {fileID: 1870649125509304, guid: 49a9de64720c4d843bcf093b13f55c0a,
     type: 2}
   _direction_start: {fileID: 4742474188050992}
   _direction_end: {fileID: 4026989243657064}
@@ -3606,7 +3606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 783fe0a386b9c6543b3318a3ade92546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: dac277c777b574249aaa4ae4eb9b4daf, type: 2}
+  _event: {fileID: 11400000, guid: 4f677097ab6c7b548914d740948fd538, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
@@ -3634,7 +3634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf72c440e4c5ed4a823282221e92c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 8e3efbcdbd56e4c42bfaa5f6edb26067, type: 2}
+  _event: {fileID: 11400000, guid: 38673efc8e712b14f93208967ce69a8a, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
@@ -3806,10 +3806,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c376aa4c9769b04eab4861eb73b7e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jump_key: 119
-  _left_key: 97
-  _right_key: 100
-  _shoot_key: 32
+  _jump_key: 112
+  _left_key: 108
+  _right_key: 39
+  _shoot_key: 305
   _state: {fileID: 114790579723081504}
 --- !u!114 &114790579723081504
 MonoBehaviour:
@@ -3841,7 +3841,7 @@ MonoBehaviour:
   _bullet_damage_sacrifice: 1
   _chosen_sacrifice: 0
   OnDeath:
-    evt: {fileID: 11400000, guid: dac277c777b574249aaa4ae4eb9b4daf, type: 2}
+    evt: {fileID: 11400000, guid: 4f677097ab6c7b548914d740948fd538, type: 2}
   OnDamage:
     evt: {fileID: 0}
   OnMovementSpeedChange:

@@ -2518,7 +2518,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699226030471686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.17, y: -0.76, z: 0}
+  m_LocalPosition: {x: 5.81, y: 6.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4658846985890374}
@@ -3606,7 +3606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 783fe0a386b9c6543b3318a3ade92546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: dac277c777b574249aaa4ae4eb9b4daf, type: 2}
+  _event: {fileID: 11400000, guid: 71fb6aeed385ee745b2528b6d5917e9f, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
@@ -3634,7 +3634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf72c440e4c5ed4a823282221e92c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 8e3efbcdbd56e4c42bfaa5f6edb26067, type: 2}
+  _event: {fileID: 11400000, guid: 980f447f37f6e8c46b85448c92a8dbae, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
@@ -3685,7 +3685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d1062de627d6f4681ef2c1ffb71d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 8337f9543514bf8499c01ff72f92df8a, type: 2}
+  _event: {fileID: 11400000, guid: 04d94b9dc9a0af14b956ee815a3816bb, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
@@ -3806,9 +3806,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c376aa4c9769b04eab4861eb73b7e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jump_key: 119
-  _left_key: 97
-  _right_key: 100
+  _jump_key: 116
+  _left_key: 102
+  _right_key: 104
   _shoot_key: 32
   _state: {fileID: 114790579723081504}
 --- !u!114 &114790579723081504
@@ -3841,7 +3841,7 @@ MonoBehaviour:
   _bullet_damage_sacrifice: 1
   _chosen_sacrifice: 0
   OnDeath:
-    evt: {fileID: 11400000, guid: dac277c777b574249aaa4ae4eb9b4daf, type: 2}
+    evt: {fileID: 11400000, guid: 71fb6aeed385ee745b2528b6d5917e9f, type: 2}
   OnDamage:
     evt: {fileID: 0}
   OnMovementSpeedChange:
@@ -3853,7 +3853,7 @@ MonoBehaviour:
   OnBulletDamageChange:
     evt: {fileID: 0}
   OnHealthStateChange:
-    evt: {fileID: 11400000, guid: 8337f9543514bf8499c01ff72f92df8a, type: 2}
+    evt: {fileID: 11400000, guid: 04d94b9dc9a0af14b956ee815a3816bb, type: 2}
   OnChosenSacrificeChange:
     evt: {fileID: 11400000, guid: 8e3efbcdbd56e4c42bfaa5f6edb26067, type: 2}
 --- !u!114 &114938012926197742
@@ -3867,7 +3867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d1062de627d6f4681ef2c1ffb71d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 8337f9543514bf8499c01ff72f92df8a, type: 2}
+  _event: {fileID: 11400000, guid: 04d94b9dc9a0af14b956ee815a3816bb, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
