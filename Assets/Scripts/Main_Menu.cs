@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Sacrifice 
+namespace Sacrifice
 {
     public class Main_Menu : MonoBehaviour
     {
@@ -17,7 +17,7 @@ namespace Sacrifice
             _GSManager = GameObject.Find("GameSessionManager").GetComponent<GameSessionManager>();
         }
 
-        public void AddPlayer(int playerId) 
+        public void AddPlayer(int playerId)
         {
             Debug.Log($"Add Player {playerId}");
             _nbPlayer++;
@@ -33,6 +33,7 @@ namespace Sacrifice
 
         public void StartSession()
         {
+            _GSManager.pullNames();
             _GSManager.StartNewSession(_nbPlayer, activePlayers);
         }
 

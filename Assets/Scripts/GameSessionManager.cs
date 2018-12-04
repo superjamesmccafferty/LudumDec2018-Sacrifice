@@ -4,10 +4,14 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-namespace Sacrifice 
+using TMPro;
+
+namespace Sacrifice
 {
     public class GameSessionManager : MonoBehaviour
     {
+
+        public TextMeshProUGUI[] tmps;
 
         public int NbPlayer;
 
@@ -17,6 +21,7 @@ namespace Sacrifice
 
         private LevelManager _levelManager;
         private int[] _winCount = new int[4] { 0, 0, 0, 0 };
+        public string[] pnames = new string[4];
 
         void Start()
         {
@@ -41,7 +46,7 @@ namespace Sacrifice
             _nextRound();
         }
 
-        private void _nextRound() 
+        private void _nextRound()
         {
             _levelManager.GoToNextLevel();
         }
@@ -57,7 +62,7 @@ namespace Sacrifice
                 _resetCounter();
                 GameWon();
             }
-            else 
+            else
             {
                 _nextRound();
             }
@@ -71,12 +76,22 @@ namespace Sacrifice
             Destroy(gameObject);
         }
 
-        private void _resetCounter() 
+        private void _resetCounter()
         {
             for (int i = 0; i < 4; i++)
             {
                 _winCount[i] = 0;
             }
+        }
+
+        public void pullNames()
+        {
+
+            for (int i = 0; i < 4; i++)
+            {
+                pnames[i] = tmps[i] != null && tmps[i].enabled && tmps[i].text.Length > 1 ? tmps[i].text : $"Player {i + 1}";
+            }
+
         }
     }
 }

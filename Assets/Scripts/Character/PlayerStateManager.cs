@@ -130,8 +130,11 @@ namespace Sacrifice
             OnChosenSacrificeChange.Raise(ChosenSacrifice);
 
             name = _game_settings.getName(id);
+            name_text = _game_settings.getNameText(id);
+
             name_text.text = name;
         }
+
 
         // Controls
 

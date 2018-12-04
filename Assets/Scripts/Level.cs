@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TobiasUN.Core.Events;
 using UnityEngine;
 
-namespace Sacrifice 
+namespace Sacrifice
 {
     public class Level : MonoBehaviour
     {
@@ -20,15 +20,19 @@ namespace Sacrifice
 
         private int _nbPlayer;
         private GameSessionManager _GSManager;
+        private GameSettings _GSet;
+
 
         void Start()
         {
             _GSManager = GameObject.Find("GameSessionManager").GetComponent<GameSessionManager>();
+            _GSet = GameObject.Find("GameSettings").GetComponent<GameSettings>();
 
             GameObject[] Players = new GameObject[] { Player1, Player2, Player3, Player4 };
             GameObject[] PlayersInformation = new GameObject[4];
 
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 4; i++)
+            {
                 PlayersInformation[i] = (GameObject.FindGameObjectWithTag($"player_informations_{i + 1}"));
             }
 
@@ -38,22 +42,24 @@ namespace Sacrifice
                 if (activePlayers[i])
                 {
                     // Will get the next spawn available and instantiate the player on it
-                    Instantiate(
+                    GameObject x = Instantiate(
                       Players[i],
                       GameObject.Find($"Spawn{i + 1}").transform.position,
                       new Quaternion());
+
+                    x.GetComponent<PlayerStateManager>()._game_settings = _GSet;
                 }
-                else 
+                else
                 {
                     PlayersInformation[i].SetActive(false);
                 }
             }
         }
-        
+
         // Verifie if there's only one player left on the screen
-        public void PlayerDied() 
+        public void PlayerDied()
         {
-            GameObject[] players  = GameObject.FindGameObjectsWithTag("Player");
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             Debug.Log(players.Length.ToString());
 
             if (players.Length == 0) // Will replace this by <= 0

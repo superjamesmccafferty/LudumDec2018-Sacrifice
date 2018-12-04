@@ -9,6 +9,7 @@ TagManager:
   - player_informations_3
   - player_informations_4
   - player_informations_1
+  - GS
   layers:
   - Default
   - TransparentFX

@@ -3851,6 +3851,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4d0d5273ea7384bb5e8abcbab1913a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _game_settings: {fileID: 0}
+  id: 1
+  name: 
+  name_text: {fileID: 0}
   _controller: {fileID: 114999652706157874}
   _shot_manager: {fileID: 114055401559065638}
   _inital_total_health: 100
