@@ -33727,6 +33727,7 @@ MonoBehaviour:
   Player4: {fileID: 1699226030471686, guid: e42885d2e3badde4dab5fe133053ebb7, type: 2}
   PlayerWinEvent:
     evt: {fileID: 11400000, guid: 72bad7fd9bea6444385d3a48f381aeb2, type: 2}
+  _GSet: {fileID: 2005511203}
 --- !u!4 &1447600392
 Transform:
   m_ObjectHideFlags: 0

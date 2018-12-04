@@ -18,17 +18,19 @@ namespace Sacrifice
 
         public ReliableEvent_SPlayerWin PlayerWinEvent;
 
-        private int _nbPlayer;
         private GameSessionManager _GSManager;
-        private GameSettings _GSet;
+        public GameSettings _GSet;
 
+
+        bool[] alive_players;
+        int nbPlayersAlive;
+        GameObject[] Players;
 
         void Start()
         {
             _GSManager = GameObject.Find("GameSessionManager").GetComponent<GameSessionManager>();
-            _GSet = GameObject.Find("GameSettings").GetComponent<GameSettings>();
 
-            GameObject[] Players = new GameObject[] { Player1, Player2, Player3, Player4 };
+            Players = new GameObject[] { Player1, Player2, Player3, Player4 };
             GameObject[] PlayersInformation = new GameObject[4];
 
             for (int i = 0; i < 4; i++)
@@ -54,24 +56,73 @@ namespace Sacrifice
                     PlayersInformation[i].SetActive(false);
                 }
             }
+
+            alive_players = new bool[4];
+            nbPlayersAlive = _GSManager.NbPlayer;
+
+            for (int i = 0; i < 4; i++)
+            {
+                alive_players[i] = _GSManager.ActivePlayer[i];
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                Players[i].GetComponent<PlayerStateManager>().SubscribeOnDeath(() => { PlayerDied(i); });
+            }
+
+
+
         }
 
-        // Verifie if there's only one player left on the screen
-        public void PlayerDied()
+
+
+        void PlayerDied(int id)
         {
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            Debug.Log(players.Length.ToString());
+            Debug.Log(id);
+            Debug.Log(alive_players.Length);
+            alive_players[id] = false;
+            nbPlayersAlive--;
 
-            if (players.Length == 0) // Will replace this by <= 0
+            int winner_index = -1;
+
+            for (int i = 0; i < 4; i++)
             {
-                _GSManager.RoundWon(new SPlayerWin("Nobody", new Color(0, 0, 0)));
-                // PlayerWinEvent.Raise(new SPlayerWin("Nobody", new Color(0, 0, 0)));
+                Debug.Log(alive_players[i]);
+                if (alive_players[i])
+                {
+                    winner_index = i;
+                    break;
+                }
             }
-            else if (players.Length == 1) // Will replace 3 by 1 in the integration process
+
+            if (nbPlayersAlive == 1)
             {
-                _GSManager.RoundWon(new SPlayerWin("Domingo", new Color(0, 0, 255)));
-                // PlayerWinEvent.Raise(new SPlayerWin("Domingo", new Color(0, 0, 255)));
+                _GSManager.RoundWon(new SPlayerWin(Players[winner_index].GetComponent<PlayerStateManager>().name, new Color(0, 0, 255)));
+                Debug.Log(Players[winner_index].GetComponent<PlayerStateManager>().name);
             }
         }
+
+
+
+
+
+
+        //// Verifie if there's only one player left on the screen
+        //public void PlayerDied()
+        //{
+        //    GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        //    Debug.Log(players.Length.ToString());
+
+        //    if (players.Length == 0) // Will replace this by <= 0
+        //    {
+        //        _GSManager.RoundWon(new SPlayerWin("Nobody", new Color(0, 0, 0)));
+        //        // PlayerWinEvent.Raise(new SPlayerWin("Nobody", new Color(0, 0, 0)));
+        //    }
+        //    else if (players.Length == 1) // Will replace 3 by 1 in the integration process
+        //    {
+        //        _GSManager.RoundWon(new SPlayerWin("Domingo", new Color(0, 0, 255)));
+        //        // PlayerWinEvent.Raise(new SPlayerWin("Domingo", new Color(0, 0, 255)));
+        //    }
+        //}
     }
 }
