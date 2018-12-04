@@ -20,7 +20,7 @@ namespace Sacrifice
         public bool EscapeEnable;
 
         private LevelManager _levelManager;
-        private int[] _winCount = new int[4] { 0, 0, 0, 0 };
+        public int[] _winCount = new int[4] { 0, 0, 0, 0 };
         public string[] pnames = new string[4];
 
         void Start()
@@ -55,17 +55,17 @@ namespace Sacrifice
         {
             // Each player will have an ID
             // For now I'll only use the first index
-            _winCount[0] += 1;
+            //_winCount[0] += 1;
 
-            if (_winCount[0] == 3)
-            {
-                _resetCounter();
-                GameWon();
-            }
-            else
-            {
-                _nextRound();
-            }
+            //if (_winCount[0] == 3)
+            //{
+            //    _resetCounter();
+            //    GameWon();
+            //}
+            //else
+            //{
+            _nextRound();
+            //}
         }
 
         public void GameWon()

@@ -65,9 +65,12 @@ namespace Sacrifice
                 alive_players[i] = _GSManager.ActivePlayer[i];
             }
 
+            int ind = 0;
+
             for (int i = 0; i < 4; i++)
             {
-                Players[i].GetComponent<PlayerStateManager>().SubscribeOnDeath(() => { PlayerDied(i); });
+                ind = i;
+                Players[i].GetComponent<PlayerStateManager>().SubscribeOnDeath(() => { PlayerDied(ind); });
             }
 
 
@@ -78,8 +81,6 @@ namespace Sacrifice
 
         void PlayerDied(int id)
         {
-            Debug.Log(id);
-            Debug.Log(alive_players.Length);
             alive_players[id] = false;
             nbPlayersAlive--;
 
@@ -87,7 +88,6 @@ namespace Sacrifice
 
             for (int i = 0; i < 4; i++)
             {
-                Debug.Log(alive_players[i]);
                 if (alive_players[i])
                 {
                     winner_index = i;
@@ -98,7 +98,20 @@ namespace Sacrifice
             if (nbPlayersAlive == 1)
             {
                 _GSManager.RoundWon(new SPlayerWin(Players[winner_index].GetComponent<PlayerStateManager>().name, new Color(0, 0, 255)));
-                Debug.Log(Players[winner_index].GetComponent<PlayerStateManager>().name);
+
+                _GSManager._winCount[winner_index]++;
+
+                int winner_winner_index = -1;
+
+                for (int i = 0; i < 4; i++)
+                {
+                    if (_GSManager._winCount[i] >= 3) winner_winner_index = i;
+                }
+
+                Debug.Log($"{_GSManager._winCount[0]}-{_GSManager._winCount[1]}-{_GSManager._winCount[2]}-{_GSManager._winCount[3]}");
+
+                if (winner_winner_index != -1) _GSManager.GameWon();
+
             }
         }
 

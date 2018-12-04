@@ -3866,7 +3866,7 @@ MonoBehaviour:
   _initial_jump_force: 1500
   _jump_force_min: 1000
   _jump_force_sacrifice: 50.5
-  _initial_bullet_force: 200
+  _initial_bullet_force: 2200
   _bullet_force_min: 700
   _bullet_force_sacrifice: 167
   _initial_bullet_damage: 30

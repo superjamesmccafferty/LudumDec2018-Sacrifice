@@ -318,6 +318,7 @@ namespace Sacrifice
 
         public CoreEventToken SubscribeOnDeath(UnityAction callback)
         {
+            Debug.Log(OnDeath);
             return OnDeath.Subscribe(callback);
         }
 
