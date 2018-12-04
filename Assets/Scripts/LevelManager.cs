@@ -22,7 +22,7 @@ namespace Sacrifice
         /// Load a level randomly from the available 
         /// level and then substract it from the list
         /// </summary>
-        public void GoToNextLevel(int nbPlayer)
+        public void GoToNextLevel()
         {
             if (_availableLevels.Count == 0)
             {

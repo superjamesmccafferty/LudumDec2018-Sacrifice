@@ -8,7 +8,8 @@ namespace Sacrifice
     public class Main_Menu : MonoBehaviour
     {
 
-        private int _nbPlayer = 1;
+        private int _nbPlayer = 0;
+        private bool[] activePlayers = { false, false, false, false };
         private GameSessionManager _GSManager;
 
         void Start()
@@ -16,14 +17,23 @@ namespace Sacrifice
             _GSManager = GameObject.Find("GameSessionManager").GetComponent<GameSessionManager>();
         }
 
-        public void AddPlayer() 
+        public void AddPlayer(int playerId) 
         {
-            _nbPlayer = 1;
+            Debug.Log($"Add Player {playerId}");
+            _nbPlayer++;
+            activePlayers[playerId] = true;
         }
 
-        public void StartSession(int nbPlayer)
+        public void RemovePlayer(int playerId)
         {
-            _GSManager.StartNewSession(nbPlayer);
+            Debug.Log($"Removing Player {playerId}");
+            _nbPlayer--;
+            activePlayers[playerId] = false;
+        }
+
+        public void StartSession()
+        {
+            _GSManager.StartNewSession(_nbPlayer, activePlayers);
         }
 
         public void QuitGame()

@@ -10,6 +10,9 @@ namespace Sacrifice
     {
 
         public int NbPlayer;
+
+        public bool[] ActivePlayer;
+
         public bool EscapeEnable;
 
         private LevelManager _levelManager;
@@ -29,17 +32,18 @@ namespace Sacrifice
             }
         }
 
-        public void StartNewSession(int nbPlayer)
+        public void StartNewSession(int nbPlayer, bool[] activePlayer)
         {
             this.NbPlayer = nbPlayer;
+            this.ActivePlayer = activePlayer;
             this.EscapeEnable = true;
 
-            _nextRound(nbPlayer);
+            _nextRound();
         }
 
-        private void _nextRound(int nbPlayer) 
+        private void _nextRound() 
         {
-            _levelManager.GoToNextLevel(nbPlayer);
+            _levelManager.GoToNextLevel();
         }
 
         public void RoundWon(SPlayerWin winner)
@@ -55,7 +59,7 @@ namespace Sacrifice
             }
             else 
             {
-                _nextRound(this.NbPlayer);
+                _nextRound();
             }
         }
 

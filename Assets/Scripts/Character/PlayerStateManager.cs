@@ -7,10 +7,18 @@ using TobiasUN.Core.Utilities.Code.Types;
 using UnityEngine;
 using UnityEngine.Events;
 
+using TMPro;
+
 namespace Sacrifice
 {
     public class PlayerStateManager : MonoBehaviour, IDamagable
     {
+
+        [Header("Player Names")]
+        public GameSettings _game_settings;
+        public int id;
+        public string name;
+        public TextMeshProUGUI name_text;
 
         [Header("Character Control")]
         [SerializeField]
@@ -102,6 +110,8 @@ namespace Sacrifice
         public ESacrificeStats ChosenSacrifice { get; private set; }
 
 
+        bool _can_shoot = true;
+
 
         void Start()
         {
@@ -118,8 +128,10 @@ namespace Sacrifice
             _controller.Init(JumpForce, MovementSpeed, OnMovementSpeedChange, OnJumpForceChange);
 
             OnChosenSacrificeChange.Raise(ChosenSacrifice);
-        }
 
+            name = _game_settings.getName(id);
+            name_text.text = name;
+        }
 
         // Controls
 
@@ -130,8 +142,17 @@ namespace Sacrifice
 
         public void Shoot()
         {
-            _controller.Shoot();
-            SacrificeStat(ChosenSacrifice);
+            if (_can_shoot)
+            {
+                _controller.Shoot();
+                SacrificeStat(ChosenSacrifice);
+                _can_shoot = false;
+            }
+        }
+
+        public void CanShoot()
+        {
+            _can_shoot = true;
         }
 
         public void CycleNextSacrifice()
@@ -166,7 +187,7 @@ namespace Sacrifice
 
         public void SacrificeStat(ESacrificeStats stat, int random_level)
         {
-            if (random_level >= 3) return;
+            if (random_level >= 20) return;
 
             switch (stat)
             {
