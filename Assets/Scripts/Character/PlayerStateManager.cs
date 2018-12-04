@@ -133,7 +133,6 @@ namespace Sacrifice
             name_text.text = name;
         }
 
-
         // Controls
 
         public void Move(float move, bool jump)
