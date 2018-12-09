@@ -15,10 +15,7 @@ namespace Sacrifice
     {
 
         [Header("Player Names")]
-        public GameSettings _game_settings;
         public int id;
-        public string name;
-        public TextMeshProUGUI name_text;
 
         [Header("Character Control")]
         [SerializeField]
@@ -128,11 +125,6 @@ namespace Sacrifice
             _controller.Init(JumpForce, MovementSpeed, OnMovementSpeedChange, OnJumpForceChange);
 
             OnChosenSacrificeChange.Raise(ChosenSacrifice);
-
-            name = _game_settings.getName(id);
-            name_text = _game_settings.getNameText(id);
-
-            name_text.text = name;
         }
 
 
