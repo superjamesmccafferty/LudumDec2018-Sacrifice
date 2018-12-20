@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.Events;
 
 using TobiasUN.Core.Events;
+using TobiasUN._2D.Movement;
 
 namespace Sacrifice
 {
     public class CharacterController2D : MonoBehaviour
     {
-
         [Header("Movement Configuration")]
 
         //[SerializeField]
@@ -63,6 +63,11 @@ namespace Sacrifice
 
 
 
+        // TESTING
+
+        ITranslator2D<Rigidbody2D> _mover;
+
+
 
 
 
@@ -74,6 +79,8 @@ namespace Sacrifice
         void Start()
         {
             PlayerStateManager manager = gameObject.GetComponent<PlayerStateManager>();
+
+            _mover = new VelocityTranslatorRigidbody2D(_movement_smoothing);
         }
 
         public void Init(float jump_force, float move_speed, ReliableEvent_float move_speed_change, ReliableEvent_float jump_force_change)
@@ -132,16 +139,7 @@ namespace Sacrifice
             if (_is_grounded || _is_air_control_on)
             {
 
-                // Move the character by finding the target velocity
-                Vector3 targetVelocity = new Vector2(move * _move_speed, _rb2.velocity.y);
-
-                // And then smoothing it out and applying it to the character
-                _rb2.velocity = Vector3.SmoothDamp(
-                    _rb2.velocity,
-                    targetVelocity,
-                    ref _velocity,
-                    _movement_smoothing);
-
+                _mover.Move(_rb2, new Vector2(move * _move_speed, _rb2.velocity.y));
 
                 // If the input is moving the player right and the player is facing left...
                 if ((move > 0 && !_is_facing_right) || (move < 0 && _is_facing_right))
