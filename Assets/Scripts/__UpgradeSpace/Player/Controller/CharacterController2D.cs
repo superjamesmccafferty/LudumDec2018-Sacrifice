@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 using TobiasUN.Core.Events;
 using TobiasUN._2D.Movement;
+using TobiasUN.Core.Base.MonoBehaviours;
 
 namespace Sacrifice
 {
@@ -16,7 +17,6 @@ namespace Sacrifice
         SOPlayerSettings_BZ _player_settings;
 
         SPlayerSettings_BZ _ps;
-
 
 
 
@@ -58,6 +58,38 @@ namespace Sacrifice
 
         // TESTING
         ITranslator2D<Rigidbody2D> _mover;
+
+
+
+
+        #region Construction
+
+        public static DConstructionBlueprint<CharacterController2D> GetConstructionBlueprint(SPlayerSettings_BZ settings)
+        {
+            return (GameObject ob) =>
+            {
+
+                if (ComponentConstruction.ContainsComponent<CharacterController2D>(ob))
+                {
+                    Debug.LogWarning("object should not have multiple CharacterController2D");
+                }
+
+                CharacterController2D comp = ob.AddComponent<CharacterController2D>();
+
+                comp._ps = settings;
+
+                return comp;
+            };
+
+        }
+
+        #endregion
+
+
+
+
+
+
 
 
 
