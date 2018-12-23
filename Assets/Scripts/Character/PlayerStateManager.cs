@@ -122,7 +122,6 @@ namespace Sacrifice
 
 
             _shot_manager.Init(BulletForce, BulletDamage, OnBulletForceChange, OnBulletDamageChange);
-            _controller.Init(JumpForce, MovementSpeed, OnMovementSpeedChange, OnJumpForceChange);
 
             OnChosenSacrificeChange.Raise(ChosenSacrifice);
         }

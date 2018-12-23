@@ -13616,6 +13616,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: f65db8dc167203e418d15ee58ff1befb,
         type: 2}
+    - target: {fileID: 114999652706157874, guid: 10ee25cf56fc0f84d8b74e77441e30ab,
+        type: 2}
+      propertyPath: _checker
+      value: 
+      objectReference: {fileID: 1882364691}
+    - target: {fileID: 114999652706157874, guid: 10ee25cf56fc0f84d8b74e77441e30ab,
+        type: 2}
+      propertyPath: _radial_checker
+      value: 
+      objectReference: {fileID: 1882364691}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10ee25cf56fc0f84d8b74e77441e30ab, type: 2}
   m_IsPrefabAsset: 0

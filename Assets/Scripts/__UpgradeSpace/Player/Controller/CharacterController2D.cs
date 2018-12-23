@@ -17,19 +17,22 @@ namespace Sacrifice
         [SerializeField]
         SOPlayerSettings_BZ _player_settings;
 
+        [SerializeField]
+        [Tooltip("Contains registered checks")]
+        RadialCollisionChecker2D _radial_checker;
+
+
+        [SerializeField]
+        ShootManager _shoot_manager;    // Needs changing from some generic ability system
+
+
+
+
+        const string c_grounded_check_id = "Grounded";
+
+
+
         SPlayerSettings_BZ _ps;
-
-
-
-        [SerializeField]
-        LayerMask _ground_mask;
-
-        [SerializeField]
-        Transform[] _ground_check;
-
-        [SerializeField]
-        ShootManager _shoot_manager;
-
 
         const float _grounded_radius = .2f;
 
@@ -60,8 +63,7 @@ namespace Sacrifice
         // TESTING
         ITranslator2D<Rigidbody2D> _mover;
 
-        [SerializeField]
-        RadialCollisionChecker2D _checker;
+
 
 
 
@@ -109,17 +111,14 @@ namespace Sacrifice
 
             // replace with some kind of enum
             _mover = new VelocityTranslatorRigidbody2D(_ps.movement_smoothing);
+
+            // Check that radial checks are present
+            if (!_radial_checker.ContainsChecks(c_grounded_check_id))
+            {
+                Debug.LogWarning("All checks not present in radial checker");
+            }
         }
 
-        // Should be a construciton blueprint
-        public void Init(float jump_force, float move_speed, ReliableEvent_float move_speed_change, ReliableEvent_float jump_force_change)
-        {
-            //_ps.jump_force = jump_force;
-            //_ps.move_speed = move_speed;
-
-            //move_speed_change.Subscribe(m => _move_speed = m);
-            //jump_force_change.Subscribe(f => _jump_force = f);
-        }
 
         void FixedUpdate()
         {
@@ -127,7 +126,7 @@ namespace Sacrifice
             _is_grounded = false;
 
 
-            if (_checker.PerformCheck("Grounded", gameObject))
+            if (_radial_checker.PerformCheck("Grounded", gameObject))
             {
                 _is_grounded = true;
                 if (!wasGrounded)
@@ -205,7 +204,6 @@ namespace Sacrifice
 
 
         // --- EVENTS ---
-
         public CoreEventToken Subscribe_OnLand(UnityAction callback)
         {
             return OnLand.Subscribe(callback);
