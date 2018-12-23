@@ -10,18 +10,15 @@ namespace Sacrifice
 {
     public class CharacterController2D : MonoBehaviour
     {
-        [Header("Movement Configuration")]
-
-        //[SerializeField]
-        //[Tooltip("The force with which the player jumps")]
-        float _jump_force = 400f;
-
-        [Range(0, .3f)]
-        [SerializeField]
-        float _movement_smoothing = .05f;
+        [Header("Player Settings")]
 
         [SerializeField]
-        bool _is_air_control_on = false;
+        SOPlayerSettings_BZ _player_settings;
+
+        SPlayerSettings_BZ _ps;
+
+
+
 
         [SerializeField]
         LayerMask _ground_mask;
@@ -29,12 +26,8 @@ namespace Sacrifice
         [SerializeField]
         Transform[] _ground_check;
 
-        //[SerializeField]
-        float _move_speed = 10;
-
         [SerializeField]
         ShootManager _shoot_manager;
-
 
 
         const float _grounded_radius = .2f;
@@ -64,7 +57,6 @@ namespace Sacrifice
 
 
         // TESTING
-
         ITranslator2D<Rigidbody2D> _mover;
 
 
@@ -73,23 +65,29 @@ namespace Sacrifice
 
         void Awake()
         {
+            _ps = _player_settings.Settings;
+
+            // Remove and expose to Editor?????
             _rb2 = GetComponent<Rigidbody2D>();
         }
 
         void Start()
         {
+            // Will probably end up removing, need to figure out this part of the system. 
             PlayerStateManager manager = gameObject.GetComponent<PlayerStateManager>();
 
-            _mover = new VelocityTranslatorRigidbody2D(_movement_smoothing);
+            // replace with some kind of enum
+            _mover = new VelocityTranslatorRigidbody2D(_ps.movement_smoothing);
         }
 
+        // Should be a construciton blueprint
         public void Init(float jump_force, float move_speed, ReliableEvent_float move_speed_change, ReliableEvent_float jump_force_change)
         {
-            _jump_force = jump_force;
-            _move_speed = move_speed;
+            //_ps.jump_force = jump_force;
+            //_ps.move_speed = move_speed;
 
-            move_speed_change.Subscribe(m => _move_speed = m);
-            jump_force_change.Subscribe(f => _jump_force = f);
+            //move_speed_change.Subscribe(m => _move_speed = m);
+            //jump_force_change.Subscribe(f => _jump_force = f);
         }
 
         void FixedUpdate()
@@ -97,6 +95,10 @@ namespace Sacrifice
             bool wasGrounded = _is_grounded;
             _is_grounded = false;
 
+            // Want to create some kind of checking system object
+            // Probably use strings and collider lists
+            // Probably creat events per string, etc. 
+            // Will need custom editor not to be completely shit
             List<Collider2D> colliders = new List<Collider2D>();
 
             foreach (Transform t in _ground_check)
@@ -136,10 +138,10 @@ namespace Sacrifice
         public void Move(float move, bool jump)
         {
 
-            if (_is_grounded || _is_air_control_on)
+            if (_is_grounded || _ps.is_air_control_on)
             {
 
-                _mover.Move(_rb2, new Vector2(move * _move_speed, _rb2.velocity.y));
+                _mover.Move(_rb2, new Vector2(move * _ps.move_speed, _rb2.velocity.y));
 
                 // If the input is moving the player right and the player is facing left...
                 if ((move > 0 && !_is_facing_right) || (move < 0 && _is_facing_right))
@@ -160,7 +162,7 @@ namespace Sacrifice
                 OnJumpStart.Raise();
 
                 _is_grounded = false;
-                _rb2.AddForce(new Vector2(0f, _jump_force));
+                _rb2.AddForce(new Vector2(0f, _ps.jump_force));
                 OnJumpStart.Raise();
             }
         }
