@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using TobiasUN.Core.Events;
 using TobiasUN._2D.Movement;
 using TobiasUN.Core.Base.MonoBehaviours;
+using TobiasUN._2D.Collisions;
 
 namespace Sacrifice
 {
@@ -59,6 +60,9 @@ namespace Sacrifice
         // TESTING
         ITranslator2D<Rigidbody2D> _mover;
 
+        [SerializeField]
+        RadialCollisionChecker2D _checker;
+
 
 
 
@@ -86,22 +90,17 @@ namespace Sacrifice
         #endregion
 
 
-
-
-
-
-
-
-
-
-
         void Awake()
         {
             _ps = _player_settings.Settings;
 
             // Remove and expose to Editor?????
             _rb2 = GetComponent<Rigidbody2D>();
+
         }
+
+
+
 
         void Start()
         {
@@ -127,37 +126,18 @@ namespace Sacrifice
             bool wasGrounded = _is_grounded;
             _is_grounded = false;
 
-            // Want to create some kind of checking system object
-            // Probably use strings and collider lists
-            // Probably creat events per string, etc. 
-            // Will need custom editor not to be completely shit
-            List<Collider2D> colliders = new List<Collider2D>();
 
-            foreach (Transform t in _ground_check)
+            if (_checker.PerformCheck("Grounded", gameObject))
             {
-                Collider2D[] temp_col = Physics2D.OverlapCircleAll(
-                   t.position,
-                   _grounded_radius,
-                   _ground_mask);
-
-                foreach (Collider2D col in temp_col)
+                _is_grounded = true;
+                if (!wasGrounded)
                 {
-                    colliders.Add(col);
+                    OnLand.Raise();
+                    OnJumpStop.Raise();
                 }
-            }
 
-            for (int i = 0; i < colliders.Count; i++)
-            {
-                if (colliders[i].gameObject != gameObject)
-                {
-                    _is_grounded = true;
-                    if (!wasGrounded)
-                    {
-                        OnLand.Raise();
-                        OnJumpStop.Raise();
-                    }
-                }
-            }
+            };
+
 
             if (_just_shot)
             {

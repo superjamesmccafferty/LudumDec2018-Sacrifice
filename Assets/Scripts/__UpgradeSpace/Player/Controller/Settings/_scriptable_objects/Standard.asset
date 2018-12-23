@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Standard
   m_EditorClassIdentifier: 
   _settings:
-    jump_force: 400
-    movement_smoothing: 0.5
+    jump_force: 1000
+    movement_smoothing: 0.05
     is_air_control_on: 1
-    move_speed: 600
+    move_speed: 10

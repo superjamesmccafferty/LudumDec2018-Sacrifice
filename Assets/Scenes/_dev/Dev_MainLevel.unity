@@ -13610,6 +13610,12 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114999652706157874, guid: 10ee25cf56fc0f84d8b74e77441e30ab,
+        type: 2}
+      propertyPath: _player_settings
+      value: 
+      objectReference: {fileID: 11400000, guid: f65db8dc167203e418d15ee58ff1befb,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10ee25cf56fc0f84d8b74e77441e30ab, type: 2}
   m_IsPrefabAsset: 0
@@ -20994,6 +21000,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4227330437970172, guid: 62f3a0601837a2c4fab2141b8ad4e213,
     type: 2}
   m_PrefabInternal: {fileID: 490307299}
+--- !u!4 &944092211 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4874672780655500, guid: 10ee25cf56fc0f84d8b74e77441e30ab,
+    type: 2}
+  m_PrefabInternal: {fileID: 565765362}
 --- !u!1 &956504209
 GameObject:
   m_ObjectHideFlags: 0
@@ -34296,6 +34307,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1505388202}
   m_CullTransparentMesh: 0
+--- !u!4 &1511899693 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4658846985890374, guid: 10ee25cf56fc0f84d8b74e77441e30ab,
+    type: 2}
+  m_PrefabInternal: {fileID: 565765362}
 --- !u!1 &1512566969
 GameObject:
   m_ObjectHideFlags: 0
@@ -39699,6 +39715,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 11.98}
   m_EdgeRadius: 0
+--- !u!4 &1563846232 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4885090953651046, guid: 10ee25cf56fc0f84d8b74e77441e30ab,
+    type: 2}
+  m_PrefabInternal: {fileID: 565765362}
 --- !u!4 &1572484858 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4227330437970172, guid: 62f3a0601837a2c4fab2141b8ad4e213,
@@ -46254,6 +46275,33 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1868874894}
   m_CullTransparentMesh: 0
+--- !u!1 &1882364690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1699226030471686, guid: 10ee25cf56fc0f84d8b74e77441e30ab,
+    type: 2}
+  m_PrefabInternal: {fileID: 565765362}
+--- !u!114 &1882364691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882364690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ae8302820b5bb4892e53474dc85ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radial_checks:
+  - _check_name: Grounded
+    _applied_layers:
+    - Ground
+    radials:
+    - transform: {fileID: 1511899693}
+      radius: 0.2
+    - transform: {fileID: 1563846232}
+      radius: 0.2
+    - transform: {fileID: 944092211}
+      radius: 0.2
 --- !u!1 &1902493588
 GameObject:
   m_ObjectHideFlags: 0
