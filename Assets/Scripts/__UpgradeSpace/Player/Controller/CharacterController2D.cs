@@ -12,6 +12,9 @@ namespace Sacrifice
 {
     public class CharacterController2D : MonoBehaviour
     {
+
+        #region Design Space
+
         [Header("Player Settings")]
 
         [SerializeField]
@@ -28,12 +31,12 @@ namespace Sacrifice
         [SerializeField]
         ShootManager _shoot_manager;    // Needs changing from some generic ability system
 
+        #endregion
 
 
 
 
         const string c_grounded_check_id = "Grounded";
-
 
 
         SPlayerSettings_BZ _ps;
