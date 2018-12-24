@@ -21,9 +21,13 @@ namespace Sacrifice
         [Tooltip("Contains registered checks")]
         RadialCollisionChecker2D _radial_checker;
 
+        [SerializeField]
+        [Tooltip("Controller Events")]
+        PlayerControllerEvents _events;
 
         [SerializeField]
         ShootManager _shoot_manager;    // Needs changing from some generic ability system
+
 
 
 
@@ -42,27 +46,22 @@ namespace Sacrifice
 
         bool _is_facing_right = true;
 
-        Vector3 _velocity = Vector3.zero;
+        //Vector3 _velocity = Vector3.zero;
 
         bool _just_shot = false;
 
 
-        [Header("Events")]
-        [SerializeField]
-        ReliableEvent OnLand;
 
-        [SerializeField] ReliableEvent OnJumpStart;
-        [SerializeField] ReliableEvent OnJumpStop;
-        [SerializeField] ReliableEvent OnRunStart;
-        [SerializeField] ReliableEvent OnRunStop;
-        [SerializeField] ReliableEvent OnAttackStart;
-        [SerializeField] ReliableEvent OnAttackStop;
+        int _player_id;
 
 
 
         // TESTING
         ITranslator2D<Rigidbody2D> _mover;
 
+
+
+        public PlayerControllerEvents Events { get { return _events; } }
 
 
 
@@ -107,12 +106,14 @@ namespace Sacrifice
         void Start()
         {
             // Will probably end up removing, need to figure out this part of the system. 
-            PlayerStateManager manager = gameObject.GetComponent<PlayerStateManager>();
+            //PlayerStateManager manager = gameObject.GetComponent<PlayerStateManager>();
 
             // replace with some kind of enum
             _mover = new VelocityTranslatorRigidbody2D(_ps.movement_smoothing);
 
             // Check that radial checks are present
+            _radial_checker.Initialize();
+
             if (!_radial_checker.ContainsChecks(c_grounded_check_id))
             {
                 Debug.LogWarning("All checks not present in radial checker");
@@ -131,8 +132,8 @@ namespace Sacrifice
                 _is_grounded = true;
                 if (!wasGrounded)
                 {
-                    OnLand.Raise();
-                    OnJumpStop.Raise();
+                    Events.OnLand.Raise(_player_id);
+                    Events.OnJumpStop.Raise(_player_id);
                 }
 
             };
@@ -141,7 +142,7 @@ namespace Sacrifice
             if (_just_shot)
             {
                 _just_shot = false;
-                OnAttackStop.Raise();
+                Events.OnAttackStop.Raise(_player_id);
             }
         }
 
@@ -160,21 +161,21 @@ namespace Sacrifice
 
                 if (Mathf.Abs(move) > 0)
                 {
-                    OnRunStart.Raise();
+                    Events.OnRunStart.Raise(_player_id);
                 }
                 else
                 {
-                    OnRunStop.Raise();
+                    Events.OnRunStop.Raise(_player_id);
                 }
             }
 
             if (_is_grounded && jump)
             {
-                OnJumpStart.Raise();
+                Events.OnJumpStart.Raise(_player_id);
 
                 _is_grounded = false;
                 _rb2.AddForce(new Vector2(0f, _ps.jump_force));
-                OnJumpStart.Raise();
+                Events.OnJumpStart.Raise(_player_id);
             }
         }
 
@@ -186,7 +187,7 @@ namespace Sacrifice
         public void Shoot()
         {
             _shoot_manager.Shoot(_is_facing_right);
-            OnAttackStart.Raise();
+            Events.OnAttackStart.Raise(_player_id);
             _just_shot = true;
         }
 
@@ -200,38 +201,6 @@ namespace Sacrifice
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
-        }
-
-
-        // --- EVENTS ---
-        public CoreEventToken Subscribe_OnLand(UnityAction callback)
-        {
-            return OnLand.Subscribe(callback);
-        }
-
-        public CoreEventToken Subscribe_OnJumpStart(UnityAction callback)
-        {
-            return OnJumpStart.Subscribe(callback);
-        }
-        public CoreEventToken Subscribe_OnJumpStop(UnityAction callback)
-        {
-            return OnJumpStop.Subscribe(callback);
-        }
-        public CoreEventToken Subscribe_OnRunStart(UnityAction callback)
-        {
-            return OnRunStart.Subscribe(callback);
-        }
-        public CoreEventToken Subscribe_OnRunStop(UnityAction callback)
-        {
-            return OnRunStop.Subscribe(callback);
-        }
-        public CoreEventToken Subscribe_OnAttackStart(UnityAction callback)
-        {
-            return OnAttackStart.Subscribe(callback);
-        }
-        public CoreEventToken Subscribe_OnAttackStop(UnityAction callback)
-        {
-            return OnAttackStop.Subscribe(callback);
         }
 
 

@@ -1848,23 +1848,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: f3f0107e73ac700419da1ef8c68af4aa, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 396622873}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &261572339
 GameObject:
   m_ObjectHideFlags: 0
@@ -7276,23 +7259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 78ca06f737aebac47a7ce975aaccb7b9, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 451754062}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &384623035
 GameObject:
   m_ObjectHideFlags: 0
@@ -7753,23 +7719,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 04069aef6671b40458a312a81fb85c11, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1616581681}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &448503694
 GameObject:
   m_ObjectHideFlags: 0
@@ -8061,23 +8010,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: d4b30c2dffe683f4e84be74766008333, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1977112695}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &468916159
 Prefab:
   m_ObjectHideFlags: 0
@@ -13533,23 +13465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ecf5fe0d94e1574ebc31d6f12ee5041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: de9ec915f4eb1fc49b4ca1ec4431f931, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 550970183}
-        m_MethodName: FloatToText
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_STimerTick, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &550970183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13626,6 +13541,12 @@ Prefab:
       propertyPath: _radial_checker
       value: 
       objectReference: {fileID: 1882364691}
+    - target: {fileID: 114999652706157874, guid: 10ee25cf56fc0f84d8b74e77441e30ab,
+        type: 2}
+      propertyPath: _events
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d35c7f7344f67242a235098b4b9e03e,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10ee25cf56fc0f84d8b74e77441e30ab, type: 2}
   m_IsPrefabAsset: 0
@@ -14366,23 +14287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: f15009c199714d840a5f0c8f2dce350b, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 508522195}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &622629205
 GameObject:
   m_ObjectHideFlags: 0
@@ -14762,23 +14666,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: b0afa368d0003f84697842899ba4304e, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1220745747}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &678529814
 GameObject:
   m_ObjectHideFlags: 0
@@ -15376,23 +15263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 9e468988867614b4ea490f53e9daf51c, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 877578576}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &800977997
 GameObject:
   m_ObjectHideFlags: 0
@@ -27061,23 +26931,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 30b48b8ed5500254a80dd1e301295f6e, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 639078719}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1187268060
 GameObject:
   m_ObjectHideFlags: 0
@@ -27204,23 +27057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 136da928829e10a4fa5ae7dad011d44e, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 638599004}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1218429161
 GameObject:
   m_ObjectHideFlags: 0
@@ -27270,23 +27106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 5f748bfe215d34143971c39c64a4292c, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 739964829}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1220745745
 GameObject:
   m_ObjectHideFlags: 0
@@ -39653,23 +39472,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 22a57dff0e4a7ad4093196ce2aa594da, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1226792410}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1563317700
 GameObject:
   m_ObjectHideFlags: 0
@@ -40132,23 +39934,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: a658bfcfb5b4bb545bfc9ee042209a28, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1521760584}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1641097808
 GameObject:
   m_ObjectHideFlags: 0
@@ -46361,23 +46146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: b8591bbdd662a9745b06c9d429f29d75, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1146157952}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1904312755
 GameObject:
   m_ObjectHideFlags: 0
@@ -51932,23 +51700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 1ede8abc220b8a84681703d7e77c62ca, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 41630917}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &2051422160
 GameObject:
   m_ObjectHideFlags: 0
@@ -52598,23 +52349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 339d6aefd18cc1d46b8c46b41b8f139c, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1077817855}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &2141895992
 GameObject:
   m_ObjectHideFlags: 0
@@ -52664,23 +52398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d6382b1a885624ebb26fbfd44ddec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: 951cc9bf9c4a8664fb26232317f0e5c9, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2020712618}
-        m_MethodName: FillWithCurrentHealth
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: TobiasUN.Core.Events.UnityEvent_float, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &2143491526
 Prefab:
   m_ObjectHideFlags: 0

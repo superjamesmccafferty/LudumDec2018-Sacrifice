@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308c287880cac364386b8ae5610596a0, type: 3}
+  m_Name: GameEvents
+  m_EditorClassIdentifier: 
+  _on_land:
+    evt: {fileID: 11400000, guid: ea3c973008d03a34a8540077464efebc, type: 2}
+  _on_jump_start:
+    evt: {fileID: 11400000, guid: 00726c5702a2517428747cad9af7ce89, type: 2}
+  _on_jump_stop:
+    evt: {fileID: 11400000, guid: 95a36ac3b47e0cf40a6c89cd2ab50b1d, type: 2}
+  _on_run_start:
+    evt: {fileID: 11400000, guid: 282b3ceed17719243b707a5be93635ab, type: 2}
+  _on_run_stop:
+    evt: {fileID: 11400000, guid: d47bece9036cb8f4bafeccd2f9bc6084, type: 2}
+  _on_attack_start:
+    evt: {fileID: 11400000, guid: c672a9b9bcb78214cb640efa2ec1e48c, type: 2}
+  _on_attack_stop:
+    evt: {fileID: 11400000, guid: 1a3e8667407a0c744b74bb0573bf2677, type: 2}

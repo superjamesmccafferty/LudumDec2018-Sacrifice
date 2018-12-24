@@ -15,7 +15,7 @@ namespace Sacrifice
 
         public bool is_populated { get; private set; }
 
-        PowerUp _current_powerup;
+        //PowerUp _current_powerup;
 
 
         public void Spawn()
@@ -24,7 +24,7 @@ namespace Sacrifice
             if (is_populated) return;
 
             GameObject ob = Instantiate(_pickup_prefab, gameObject.transform);
-            _current_powerup = _pickup_prefab.GetComponent<PowerUp>();
+            //_current_powerup = _pickup_prefab.GetComponent<PowerUp>();
             is_populated = true;
 
         }

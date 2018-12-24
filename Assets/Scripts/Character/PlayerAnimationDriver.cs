@@ -18,12 +18,12 @@ namespace Sacrifice
         public void Start()
         {
 
-            _char_cont.Subscribe_OnAttackStart(() => Attack(true));
-            _char_cont.Subscribe_OnAttackStop(() => Attack(false));
-            _char_cont.Subscribe_OnJumpStart(() => Jump(true));
-            _char_cont.Subscribe_OnJumpStop(() => Jump(false));
-            _char_cont.Subscribe_OnRunStart(() => Run(true));
-            _char_cont.Subscribe_OnRunStop(() => Run(false));
+            //_char_cont.Subscribe_OnAttackStart(() => Attack(true));
+            //_char_cont.Subscribe_OnAttackStop(() => Attack(false));
+            //_char_cont.Subscribe_OnJumpStart(() => Jump(true));
+            //_char_cont.Subscribe_OnJumpStop(() => Jump(false));
+            //_char_cont.Subscribe_OnRunStart(() => Run(true));
+            //_char_cont.Subscribe_OnRunStop(() => Run(false));
         }
 
 
