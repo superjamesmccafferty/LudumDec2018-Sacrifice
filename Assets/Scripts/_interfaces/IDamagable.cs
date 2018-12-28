@@ -12,7 +12,7 @@ namespace Sacrifice
 
         void Damage(float damage);
 
-        CoreEventToken SubscribeOnDamage(UnityAction<float> callback);
+        CoreEventBinding SubscribeOnDamage(UnityAction<float> callback);
 
     }
 

@@ -70,7 +70,7 @@ namespace Sacrifice
         }
 
         // --- EVENTS ---
-        CoreEventToken Subscribe_OnShoot(UnityAction callback)
+        CoreEventBinding Subscribe_OnShoot(UnityAction callback)
         {
             return OnShoot.Subscribe(callback);
         }

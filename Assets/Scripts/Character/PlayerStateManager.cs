@@ -302,44 +302,44 @@ namespace Sacrifice
             OnHealthStateChange.Raise(new SHealthState(Health, TotalHealth, TotalHealth / _inital_total_health));
         }
 
-        public CoreEventToken SubscribeOnHealthStateChange(UnityAction<SHealthState> callback)
+        public CoreEventBinding SubscribeOnHealthStateChange(UnityAction<SHealthState> callback)
         {
             return OnHealthStateChange.Subscribe(callback);
         }
 
-        public CoreEventToken SubscribeOnDeath(UnityAction callback)
+        public CoreEventBinding SubscribeOnDeath(UnityAction callback)
         {
             Debug.Log(OnDeath);
             return OnDeath.Subscribe(callback);
         }
 
-        public CoreEventToken SubscribeOnDamage(UnityAction<float> callback)
+        public CoreEventBinding SubscribeOnDamage(UnityAction<float> callback)
         {
             return OnDamage.Subscribe(callback);
         }
 
-        public CoreEventToken SubscribeOnMovementSpeedChange(UnityAction<float> callback)
+        public CoreEventBinding SubscribeOnMovementSpeedChange(UnityAction<float> callback)
         {
             return OnMovementSpeedChange.Subscribe(callback);
         }
 
-        public CoreEventToken SubscribeOnJumpForceChange(UnityAction<float> callback)
+        public CoreEventBinding SubscribeOnJumpForceChange(UnityAction<float> callback)
         {
             return OnJumpForceChange.Subscribe(callback);
         }
 
-        public CoreEventToken SubscribeOnBulletForceChange(UnityAction<float> callback)
+        public CoreEventBinding SubscribeOnBulletForceChange(UnityAction<float> callback)
         {
             return OnBulletForceChange.Subscribe(callback);
         }
 
-        public CoreEventToken SubscribeOnBulletDamageChange(UnityAction<float> callback)
+        public CoreEventBinding SubscribeOnBulletDamageChange(UnityAction<float> callback)
         {
             return OnBulletDamageChange.Subscribe(callback);
         }
 
 
-        public CoreEventToken SubscribeOnChosenSacrificeChange(UnityAction<ESacrificeStats> callback)
+        public CoreEventBinding SubscribeOnChosenSacrificeChange(UnityAction<ESacrificeStats> callback)
         {
             return OnChosenSacrificeChange.Subscribe(callback);
         }
