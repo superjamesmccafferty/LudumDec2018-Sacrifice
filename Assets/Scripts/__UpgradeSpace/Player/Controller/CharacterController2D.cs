@@ -55,7 +55,7 @@ namespace Sacrifice
 
 
 
-        int _player_id;
+        int _player_id = 0;
 
 
 

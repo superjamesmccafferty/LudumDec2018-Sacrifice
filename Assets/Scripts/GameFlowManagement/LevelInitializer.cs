@@ -46,7 +46,7 @@ namespace Sacrifice
                     Debug.LogError("Player type index was not found. Is the player missing from the array?");
                 }
 
-                GameObject player = Instantiate(
+                Instantiate(
                       _player_prefabs[index],
                       _player_spawns[index].transform.position,
                       new Quaternion());

@@ -13547,6 +13547,10 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 3d35c7f7344f67242a235098b4b9e03e,
         type: 2}
+    - target: {fileID: 1699226030471686, guid: 10ee25cf56fc0f84d8b74e77441e30ab, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10ee25cf56fc0f84d8b74e77441e30ab, type: 2}
   m_IsPrefabAsset: 0
@@ -16213,6 +16217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 920212411}
   - component: {fileID: 920212410}
+  - component: {fileID: 920212412}
   m_Layer: 0
   m_Name: DeveloperTools
   m_TagString: Untagged
@@ -16245,6 +16250,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &920212412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 920212409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79eba41c5553fcd4f801168d34b0d8a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &923088031
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ namespace Sacrifice
 
             if (is_populated) return;
 
-            GameObject ob = Instantiate(_pickup_prefab, gameObject.transform);
+            Instantiate(_pickup_prefab, gameObject.transform);
             //_current_powerup = _pickup_prefab.GetComponent<PowerUp>();
             is_populated = true;
 
