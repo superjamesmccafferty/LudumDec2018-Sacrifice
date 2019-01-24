@@ -1,13 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
+﻿
+using TobiasCS.Base.Utility.Types;
 using TobiasUN.Core.Events;
-using TobiasUN.Core.Utilities.Code;
-using TobiasUN.Core.Utilities.Code.Types;
 using UnityEngine;
 using UnityEngine.Events;
-
-using TMPro;
 
 namespace Sacrifice
 {

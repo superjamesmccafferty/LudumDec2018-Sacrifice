@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TobiasUN.Core.Utilities.Code.Types;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Sacrifice
 {
